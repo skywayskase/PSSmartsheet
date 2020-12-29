@@ -4,7 +4,7 @@
     RootModule        = 'PSSmartsheet.psm1'
     
     # Version number of this module.
-    ModuleVersion     = '0.0.1'
+    ModuleVersion     = '0.0.2'
     
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -34,7 +34,7 @@
     # PowerShellHostVersion = ''
     
     # Minimum version of Microsoft .NET Framework required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
-    # DotNetFrameworkVersion = ''
+    DotNetFrameworkVersion = '4.6.1'
     
     # Minimum version of the common language runtime (CLR) required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
     # ClrVersion = ''
@@ -46,7 +46,12 @@
     # RequiredModules = @()
     
     # Assemblies that must be loaded prior to importing this module
-    # RequiredAssemblies = @()
+    RequiredAssemblies = @(
+        "$PSScriptRoot\Lib\Newtonsoft.Json.dll",
+        "$PSScriptRoot\Lib\NLog.dll",
+        "$PSScriptRoot\Lib\RestSharp.dll",
+        "$PSScriptRoot\Lib\smartsheet-csharp-sdk.dll"
+    )
     
     # Script files (.ps1) that are run in the caller's environment prior to importing this module.
     # ScriptsToProcess = @()
@@ -87,7 +92,7 @@
         PSData = @{
             
             # Tags applied to this module. These help with module discovery in online galleries.
-            # Tags = @()
+            Tags = @('SmartSheet', 'API', 'Admin')
             
             # A URL to the license for this module.
             # LicenseUri = ''
