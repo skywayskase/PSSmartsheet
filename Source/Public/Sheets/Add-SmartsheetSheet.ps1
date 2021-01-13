@@ -58,7 +58,12 @@ Function Add-SmartsheetSheet {
                 )
             }
             Catch {
-                $PSCmdlet.ThrowTerminatingError($_)
+                If ($ErrorActionPreference -eq 'Stop') {
+                    $PSCmdlet.ThrowTerminatingError($_)
+                }
+                Else {
+                    Write-Error $_
+                }
             }
         }
         ElseIf ($PsCmdlet.ParameterSetName -eq 'Folder') {
@@ -69,7 +74,12 @@ Function Add-SmartsheetSheet {
                 )
             }
             Catch {
-                $PSCmdlet.ThrowTerminatingError($_)
+                If ($ErrorActionPreference -eq 'Stop') {
+                    $PSCmdlet.ThrowTerminatingError($_)
+                }
+                Else {
+                    Write-Error $_
+                }
             }
         }
         Else {
@@ -79,7 +89,12 @@ Function Add-SmartsheetSheet {
                 )
             }
             Catch {
-                $PSCmdlet.ThrowTerminatingError($_)
+                If ($ErrorActionPreference -eq 'Stop') {
+                    $PSCmdlet.ThrowTerminatingError($_)
+                }
+                Else {
+                    Write-Error $_
+                }
             }
         }
     }

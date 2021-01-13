@@ -44,7 +44,12 @@ Function Search-SmartsheetSheets {
                 )
             }
             Catch {
-                $PSCmdlet.ThrowTerminatingError($_)
+                If ($ErrorActionPreference -eq 'Stop') {
+                    $PSCmdlet.ThrowTerminatingError($_)
+                }
+                Else {
+                    Write-Error $_
+                }
             }
         }
         Else {
@@ -52,7 +57,12 @@ Function Search-SmartsheetSheets {
                 $script:SmartsheetClient.SearchResources.Search($Query)
             }
             Catch {
-                $PSCmdlet.ThrowTerminatingError($_)
+                If ($ErrorActionPreference -eq 'Stop') {
+                    $PSCmdlet.ThrowTerminatingError($_)
+                }
+                Else {
+                    Write-Error $_
+                }
             }
         }
     }

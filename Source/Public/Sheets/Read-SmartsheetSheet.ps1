@@ -72,7 +72,4 @@ Function Read-SmartsheetSheet {
             $null
         )
     }
-    End {
-        
-    }
 }

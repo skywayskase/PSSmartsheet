@@ -69,7 +69,12 @@ Function Copy-SmartsheetSheet {
             )
         }
         Catch {
-            $PSCmdlet.ThrowTerminatingError($_)
+            If ($ErrorActionPreference -eq 'Stop') {
+                $PSCmdlet.ThrowTerminatingError($_)
+            }
+            Else {
+                Write-Error $_
+            }
         }
     }
 }
