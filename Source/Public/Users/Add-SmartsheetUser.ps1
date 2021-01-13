@@ -50,7 +50,7 @@ Function Add-SmartsheetUser {
             }
             Try {
                 Write-Verbose "Adding user $($U.Email)"
-                $script:SmartsheetClient.UserResources.UpdateUser($U,
+                $script:SmartsheetClient.UserResources.AddUser($U,
                     $sendEmail.IsPresent,
                     $null
                 )
