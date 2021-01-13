@@ -67,6 +67,12 @@ Function Initialize-SmartsheetClient {
         If (![string]::IsNullOrWhiteSpace($AssumedUser)) {
             [Void]$Client.SetAssumedUser($AssumedUser)
         }
-        $script:SmartsheetClient = $Client
+        Try {
+            $client.Build().UserResources.GetCurrentUser()
+            $script:SmartsheetClient = $Client.Build()
+        }
+        Catch {
+            $PSCmdlet.ThrowTerminatingError($_)
+        }
     }
 }

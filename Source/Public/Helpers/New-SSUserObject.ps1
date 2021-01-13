@@ -4,7 +4,7 @@ Function New-SSUserObject {
         Builds a Smartsheet User Object
     
     .DESCRIPTION
-        A detailed description of the New-SSUserObject function.
+        Builds a Smartsheet User Object that can be used to add or update a user.
     
     .PARAMETER Email
         User's primary email address.
@@ -39,7 +39,7 @@ Function New-SSUserObject {
         Additional information about the function.
 #>
     
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'NewUserObject')]
     [OutputType([Smartsheet.Api.Models.User])]
     Param
     (
@@ -71,7 +71,7 @@ Function New-SSUserObject {
         If ($PSCmdlet.ParameterSetName -eq 'NewUserObject') {
             $userObj = [Smartsheet.Api.Models.User+AddUserBuilder]::new($null, $false, $false).Build()
         }
-        elseif ($PSCmdlet.ParameterSetName -eq 'UpdateUserObject') {
+        ElseIf ($PSCmdlet.ParameterSetName -eq 'UpdateUserObject') {
             $userObj = [Smartsheet.Api.Models.User+UpdateUserBuilder]::new($null, $false, $false).Build()
         }
         $PSBoundParameters.Keys.ForEach{
