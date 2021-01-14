@@ -65,8 +65,7 @@ Function Get-SmartsheetUser {
                    Mandatory = $true)]
         [switch]
         $List,
-        [Parameter(ParameterSetName = 'Me',
-                   Mandatory = $true)]
+        [Parameter(ParameterSetName = 'Me')]
         [switch]
         $Me
     )
