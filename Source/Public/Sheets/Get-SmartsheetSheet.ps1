@@ -1,4 +1,4 @@
-Function Get-SmartsheetSheets {
+Function Get-SmartsheetSheet {
 <#
     .SYNOPSIS
         Retrieves a list of sheets

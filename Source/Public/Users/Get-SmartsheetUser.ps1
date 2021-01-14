@@ -1,4 +1,4 @@
-Function Get-SmartsheetUsers {
+Function Get-SmartsheetUser {
 <#
     .SYNOPSIS
         Returns specified Smartsheet user or list of users
