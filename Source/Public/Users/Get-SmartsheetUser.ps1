@@ -55,7 +55,7 @@ Function Get-SmartsheetUser {
     (
         [Parameter(ParameterSetName = 'UserID',
                    Mandatory = $true)]
-        [int]
+        [long]
         $UserID,
         [Parameter(ParameterSetName = 'Email',
                    Mandatory = $true)]

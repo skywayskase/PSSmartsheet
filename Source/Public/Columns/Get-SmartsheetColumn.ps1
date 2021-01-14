@@ -30,12 +30,12 @@ Function Get-SmartsheetColumn {
     (
         [Parameter(Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
-        [int]
+        [long]
         $SheetID,
         [Smartsheet.Api.Models.ColumnInclusion[]]
         $Include = $null,
         [ValidateNotNullOrEmpty()]
-        [int[]]
+        [long[]]
         $ColumnID,
         [ValidateSet('0', '1', '2')]
         [int]

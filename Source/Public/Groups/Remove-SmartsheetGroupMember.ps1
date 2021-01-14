@@ -52,7 +52,7 @@ Function Remove-SmartsheetGroupMember {
             $UserObj = Get-SmartsheetUser -Email $U
             }
             Else {
-                $UserObj = (Get-SmartsheetUser -UserID $U)
+                $UserObj = (Get-SmartsheetUser -UserID [long]$U)
             }
             If ($Force -or $pscmdlet.ShouldProcess("Removing user with email $($UserObj.Email) from $($GroupObj.Name)")) {
                 $script:SmartsheetClient.GroupResources.RemoveGroupMember(

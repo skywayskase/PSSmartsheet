@@ -36,10 +36,10 @@ Function Add-SmartsheetSheet {
         [Smartsheet.Api.Models.Column[]]
         $Column,
         [Parameter(ParameterSetName = 'Workspace')]
-        [int]
+        [long]
         $WorkspaceID,
         [Parameter(ParameterSetName = 'Folder')]
-        [int]
+        [long]
         $FolderID
     )
     

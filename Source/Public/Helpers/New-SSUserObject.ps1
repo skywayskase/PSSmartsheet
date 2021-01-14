@@ -49,7 +49,7 @@ Function New-SSUserObject {
         $Email,
         [Parameter(ParameterSetName = 'UpdateUserObject',
                    Mandatory = $true)]
-        [int]
+        [long]
         $ID,
         [string]
         $FirstName,

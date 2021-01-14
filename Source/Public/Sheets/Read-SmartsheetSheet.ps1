@@ -38,7 +38,7 @@ Function Read-SmartsheetSheet {
         [Parameter(Mandatory = $true,
                    ValueFromPipeline = $true)]
         [ValidateNotNullOrEmpty()]
-        [int]
+        [long]
         $SheetID,
         [ValidateNotNullOrEmpty()]
         [Smartsheet.Api.Models.SheetLevelInclusion[]]

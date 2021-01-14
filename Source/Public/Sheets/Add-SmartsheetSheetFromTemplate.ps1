@@ -37,15 +37,15 @@ Function Add-SmartsheetSheetFromTemplate {
         $Name,
         [Parameter(Mandatory = $true)]
         [Alias('CopyFrom', 'TemplateID')]
-        [int]
+        [long]
         $FromID,
         [Smartsheet.Api.Models.TemplateInclusion[]]
         $Includes = $null,
         [Parameter(ParameterSetName = 'Workspace')]
-        [int]
+        [long]
         $WorkspaceID,
         [Parameter(ParameterSetName = 'Folder')]
-        [int]
+        [long]
         $FolderID
     )
     

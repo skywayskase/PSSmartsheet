@@ -59,7 +59,7 @@ Function Remove-SmartsheetUser {
                 $TransferToObj = Get-SmartsheetUser -Email $TransferTo
             }
             Else {
-                $TransferToObj = (Get-SmartsheetUser -UserID $TransferTo)
+                $TransferToObj = (Get-SmartsheetUser -UserID [long]$TransferTo)
             }
             
         }
@@ -68,7 +68,7 @@ Function Remove-SmartsheetUser {
                 $UserObj = Get-SmartsheetUser -Email $U
             }
             Else {
-            	$UserObj = (Get-SmartsheetUser -UserID $U)
+            	$UserObj = (Get-SmartsheetUser -UserID [long]$U)
             }
             If ($pscmdlet.ShouldProcess("Removing user with email $($UserObj.Email) from Org")) {
                 If ($PSCmdlet.ParameterSetName -eq 'Transfer') {
