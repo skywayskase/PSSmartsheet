@@ -52,7 +52,7 @@ Function Copy-SmartsheetSheet {
     
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
-            $PSCmdlet.ThrowTerminatingError("Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again.")
+            Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."
         }
     }
     Process {

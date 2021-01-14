@@ -51,7 +51,7 @@ Function Add-SmartsheetSheetFromTemplate {
     
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
-            $PSCmdlet.ThrowTerminatingError("Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again.")
+            Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."
         }
         $NewSheet = [Smartsheet.Api.Models.Sheet+CreateSheetFromTemplateBuilder]::New($Name, $FromID).Build()
     }

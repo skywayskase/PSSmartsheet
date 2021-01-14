@@ -73,12 +73,13 @@ Function Get-SmartsheetUser {
     
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
-            $PSCmdlet.ThrowTerminatingError("Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again.")
+            Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."
         }
         $PagingParams = [Smartsheet.Api.Models.PaginationParameters]::new($true, $null, $null)
     }
     Process {
-        Switch ($PSCmdlet.ParameterSetName) {
+        Try {
+            Switch ($PSCmdlet.ParameterSetName) {
             "UserID" {
                 $script:SmartSheetClient.UserResources.GetUser($UserID)
             }
@@ -93,5 +94,9 @@ Function Get-SmartsheetUser {
                 $script:SmartSheetClient.UserResources.GetCurrentUser()
             }
         }
+    }
+    Catch {
+        $PSCmdlet.ThrowTerminatingError($_)
+    }
     }
 }
