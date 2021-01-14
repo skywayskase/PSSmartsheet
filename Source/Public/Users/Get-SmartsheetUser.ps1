@@ -53,16 +53,13 @@ Function Get-SmartsheetUser {
     [OutputType([Smartsheet.Api.Models.User], ParameterSetName = 'Email')]
     Param
     (
-        [Parameter(ParameterSetName = 'UserID',
-                   Mandatory = $true)]
+        [Parameter(ParameterSetName = 'UserID')]
         [long]
         $UserID,
-        [Parameter(ParameterSetName = 'Email',
-                   Mandatory = $true)]
+        [Parameter(ParameterSetName = 'Email')]
         [string[]]
         $Email,
-        [Parameter(ParameterSetName = 'List',
-                   Mandatory = $true)]
+        [Parameter(ParameterSetName = 'List')]
         [switch]
         $List,
         [Parameter(ParameterSetName = 'Me')]
