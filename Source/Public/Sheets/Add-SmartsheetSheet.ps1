@@ -25,7 +25,7 @@ Function Add-SmartsheetSheet {
         Additional information about the function.
 #>
     
-    [CmdletBinding(DefaultParameterSetName = 'Folder')]
+    [CmdletBinding()]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -45,7 +45,7 @@ Function Add-SmartsheetSheet {
     
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
-            $PSCmdlet.ThrowTerminatingError("Smartsheet API Client has not yet been invoked. Please run Invoke-SmartsheetClient and try again.")
+            $PSCmdlet.ThrowTerminatingError("Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again.")
         }
         $NewSheet = [Smartsheet.Api.Models.Sheet+CreateSheetBuilder]::($Name,$Column).Build()
     }

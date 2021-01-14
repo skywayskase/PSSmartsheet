@@ -1,4 +1,4 @@
-Function Get-SmartsheetColumns {
+Function Get-SmartsheetColumn {
 <#
     .SYNOPSIS
         Gets a specified column or a list of columns on a specified sheet
@@ -44,7 +44,7 @@ Function Get-SmartsheetColumns {
     
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
-            $PSCmdlet.ThrowTerminatingError("Smartsheet API Client has not yet been invoked. Please run Invoke-SmartsheetClient and try again.")
+            $PSCmdlet.ThrowTerminatingError("Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again.")
         }
         $PagingParams = [Smartsheet.Api.Models.PaginationParameters]::new($true, $null, $null)
     }

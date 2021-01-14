@@ -73,7 +73,7 @@ Function Get-SmartsheetUsers {
     
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
-            Throw "Smartsheet API Client has not yet been invoked. Please run Invoke-SmartsheetClient and try again."
+            $PSCmdlet.ThrowTerminatingError("Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again.")
         }
         $PagingParams = [Smartsheet.Api.Models.PaginationParameters]::new($true, $null, $null)
     }
