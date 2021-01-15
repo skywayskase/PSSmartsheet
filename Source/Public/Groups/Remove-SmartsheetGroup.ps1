@@ -46,13 +46,11 @@ Function Remove-SmartsheetGroup {
                 }
             }
             Catch {
-                Catch {
-                    If ($ErrorActionPreference -eq 'Stop') {
-                        $PSCmdlet.ThrowTerminatingError($_)
-                    }
-                    Else {
-                        Write-Error $_
-                    }
+                If ($ErrorActionPreference -eq 'Stop') {
+                    $PSCmdlet.ThrowTerminatingError($_)
+                }
+                Else {
+                    Write-Error $_
                 }
             }
         }
