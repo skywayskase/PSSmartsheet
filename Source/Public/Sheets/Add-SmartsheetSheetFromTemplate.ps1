@@ -56,54 +56,34 @@ Function Add-SmartsheetSheetFromTemplate {
         $NewSheet = [Smartsheet.Api.Models.Sheet+CreateSheetFromTemplateBuilder]::New($Name, $FromID).Build()
     }
     Process {
-        If ($PsCmdlet.ParameterSetName -eq 'Workspace') {
-            Try {
+        Try {
+            If ($PsCmdlet.ParameterSetName -eq 'Workspace') {
                 $Script:SmartsheetClient.WorkspaceResources.SheetResources.CreateSheetFromTemplate(
                     $WorkspaceID,
                     $NewSheet,
                     $Includes
                 )
             }
-            Catch {
-                If ($ErrorActionPreference -eq 'Stop') {
-                    $PSCmdlet.ThrowTerminatingError($_)
-                }
-                Else {
-                    Write-Error $_
-                }
-            }
-        }
-        ElseIf ($PsCmdlet.ParameterSetName -eq 'Folder') {
-            Try {
+            ElseIf ($PsCmdlet.ParameterSetName -eq 'Folder') {
                 $Script:SmartsheetClient.FolderResources.SheetResources.CreateSheetFromTemplate(
                     $FolderID,
                     $NewSheet,
                     $Includes
                 )
             }
-            Catch {
-                If ($ErrorActionPreference -eq 'Stop') {
-                    $PSCmdlet.ThrowTerminatingError($_)
-                }
-                Else {
-                    Write-Error $_
-                }
-            }
-        }
-        Else {
-            Try {
+            Else {
                 $Script:SmartsheetClient.SheetResources.CreateSheetFromTemplate(
                     $NewSheet,
                     $Includes
                 )
             }
-            Catch {
-                If ($ErrorActionPreference -eq 'Stop') {
-                    $PSCmdlet.ThrowTerminatingError($_)
-                }
-                Else {
-                    Write-Error $_
-                }
+        }
+        Catch {
+            If ($ErrorActionPreference -eq 'Stop') {
+                $PSCmdlet.ThrowTerminatingError($_)
+            }
+            Else {
+                Write-Error $_
             }
         }
     }

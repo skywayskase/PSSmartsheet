@@ -50,52 +50,33 @@ Function Add-SmartsheetSheet {
         $NewSheet = [Smartsheet.Api.Models.Sheet+CreateSheetBuilder]::($Name,$Column).Build()
     }
     Process {
-        If ($PsCmdlet.ParameterSetName -eq 'Workspace') {
-            Try {
+        Try {
+            If ($PsCmdlet.ParameterSetName -eq 'Workspace') {
                 $Script:SmartsheetClient.WorkspaceResources.SheetResources.CreateSheet(
                     $WorkspaceID,
                     $NewSheet
                 )
             }
-            Catch {
-                If ($ErrorActionPreference -eq 'Stop') {
-                    $PSCmdlet.ThrowTerminatingError($_)
-                }
-                Else {
-                    Write-Error $_
-                }
-            }
-        }
-        ElseIf ($PsCmdlet.ParameterSetName -eq 'Folder') {
-            Try {
+            ElseIf ($PsCmdlet.ParameterSetName -eq 'Folder') {
                 $Script:SmartsheetClient.FolderResources.SheetResources.CreateSheet(
                     $FolderID,
                     $NewSheet
                 )
             }
-            Catch {
-                If ($ErrorActionPreference -eq 'Stop') {
-                    $PSCmdlet.ThrowTerminatingError($_)
-                }
-                Else {
-                    Write-Error $_
-                }
-            }
-        }
-        Else {
-            Try {
+            Else {
                 $Script:SmartsheetClient.SheetResources.CreateSheet(
                     $NewSheet
                 )
             }
-            Catch {
-                If ($ErrorActionPreference -eq 'Stop') {
-                    $PSCmdlet.ThrowTerminatingError($_)
-                }
-                Else {
-                    Write-Error $_
-                }
+        }
+        Catch {
+            If ($ErrorActionPreference -eq 'Stop') {
+                $PSCmdlet.ThrowTerminatingError($_)
+            }
+            Else {
+                Write-Error $_
             }
         }
+
     }
 }

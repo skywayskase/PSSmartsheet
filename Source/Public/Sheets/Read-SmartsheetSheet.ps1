@@ -61,15 +61,25 @@ Function Read-SmartsheetSheet {
         
     }
     Process {
-        $script:SmartsheetClient.SheetResources.GetSheet(
-            $SheetID,
-            $Include,
-            $Exclude,
-            $RowIds,
-            $RowNumbers,
-            $ColumnIDs,
-            $null,
-            $null
-        )
+        Try {
+            $script:SmartsheetClient.SheetResources.GetSheet(
+                $SheetID,
+                $Include,
+                $Exclude,
+                $RowIds,
+                $RowNumbers,
+                $ColumnIDs,
+                $null,
+                $null
+            )
+        }
+        Catch {
+            If ($ErrorActionPreference -eq 'Stop') {
+                $PSCmdlet.ThrowTerminatingError($_)
+            }
+            Else {
+                Write-Error $_
+            }
+        }
     }
 }

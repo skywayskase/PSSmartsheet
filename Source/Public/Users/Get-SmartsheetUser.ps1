@@ -76,23 +76,28 @@ Function Get-SmartsheetUser {
     Process {
         Try {
             Switch ($PSCmdlet.ParameterSetName) {
-            "UserID" {
-                $script:SmartSheetClient.UserResources.GetUser($UserID)
-            }
-            "Email" {
-                $Script:SmartsheetClient.UserResources.ListUsers($Email, $PagingParams).Data
-            }
-            
-            "List" {
-                $Script:SmartsheetClient.UserResources.ListUsers($null, $PagingParams).Data
-            }
-            "Me" {
-                $script:SmartSheetClient.UserResources.GetCurrentUser()
+                "UserID" {
+                    $script:SmartSheetClient.UserResources.GetUser($UserID)
+                }
+                "Email" {
+                    $Script:SmartsheetClient.UserResources.ListUsers($Email, $PagingParams).Data
+                }
+                
+                "List" {
+                    $Script:SmartsheetClient.UserResources.ListUsers($null, $PagingParams).Data
+                }
+                "Me" {
+                    $script:SmartSheetClient.UserResources.GetCurrentUser()
+                }
             }
         }
-    }
-    Catch {
-        $PSCmdlet.ThrowTerminatingError($_)
-    }
+        Catch {
+            If ($ErrorActionPreference -eq 'Stop') {
+                $PSCmdlet.ThrowTerminatingError($_)
+            }
+            Else {
+                Write-Error $_
+            }
+        }
     }
 }

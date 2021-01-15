@@ -36,33 +36,23 @@ Function Search-SmartsheetSheet {
         }
     }
     Process {
-        If ($SheetID) {
-            Try {
+        Try {
+            If ($SheetID) {
                 $Script:SmartsheetClient.SearchResources.SearchSheet(
                     $SheetID,
                     $Query
                 )
             }
-            Catch {
-                If ($ErrorActionPreference -eq 'Stop') {
-                    $PSCmdlet.ThrowTerminatingError($_)
-                }
-                Else {
-                    Write-Error $_
-                }
-            }
-        }
-        Else {
-            Try {
+            Else {
                 $script:SmartsheetClient.SearchResources.Search($Query)
             }
-            Catch {
-                If ($ErrorActionPreference -eq 'Stop') {
-                    $PSCmdlet.ThrowTerminatingError($_)
-                }
-                Else {
-                    Write-Error $_
-                }
+        }
+        Catch {
+            If ($ErrorActionPreference -eq 'Stop') {
+                $PSCmdlet.ThrowTerminatingError($_)
+            }
+            Else {
+                Write-Error $_
             }
         }
     }

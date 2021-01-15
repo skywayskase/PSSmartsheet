@@ -71,22 +71,31 @@ Function Remove-SmartsheetUser {
             	$UserObj = (Get-SmartsheetUser -UserID $U)
             }
             If ($pscmdlet.ShouldProcess("Removing user with email $($UserObj.Email) from Org")) {
-                If ($PSCmdlet.ParameterSetName -eq 'Transfer') {
-                    $script:SmartsheetClient.UserResources.RemoveUser($userObj.ID,
-                        $TransferToObj.ID,
-                        $TransferSheets.IsPresent,
-                        $RemoveFromSharing.IsPresent
-                    )
+                Try {
+                    If ($PSCmdlet.ParameterSetName -eq 'Transfer') {
+                        $script:SmartsheetClient.UserResources.RemoveUser($userObj.ID,
+                            $TransferToObj.ID,
+                            $TransferSheets.IsPresent,
+                            $RemoveFromSharing.IsPresent
+                        )
+                    }
+                    Else {
+                        $script:SmartsheetClient.UserResources.RemoveUser($userObj.ID,
+                            $null,
+                            $TransferSheets.IsPresent,
+                            $RemoveFromSharing.IsPresent
+                        )
+                    }
                 }
-                Else {
-                    $script:SmartsheetClient.UserResources.RemoveUser($userObj.ID,
-                        $null,
-                        $TransferSheets.IsPresent,
-                        $RemoveFromSharing.IsPresent
-                    )
+                Catch {
+                    If ($ErrorActionPreference -eq 'Stop') {
+                        $PSCmdlet.ThrowTerminatingError($_)
+                    }
+                    Else {
+                        Write-Error $_
+                    }
                 }
             }
         }
-        
     }
 }

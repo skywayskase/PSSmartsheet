@@ -48,17 +48,27 @@ Function Remove-SmartsheetGroupMember {
     Process {
         $GroupObj = Get-SmartsheetGroup -GroupID $GroupID
         ForEach ($U In $User) {
-            If ($U -match "^[^@\s]+@[^@\s]+\.[^@\s]+$") {
-            $UserObj = Get-SmartsheetUser -Email $U
+            Try {
+                If ($U -match "^[^@\s]+@[^@\s]+\.[^@\s]+$") {
+                $UserObj = Get-SmartsheetUser -Email $U
+                }
+                Else {
+                    $UserObj = (Get-SmartsheetUser -UserID $U)
+                }
+                If ($Force -or $pscmdlet.ShouldProcess("Removing user with email $($UserObj.Email) from $($GroupObj.Name)")) {
+                    $script:SmartsheetClient.GroupResources.RemoveGroupMember(
+                        $GroupID,
+                        $UserObj.ID
+                    )
+                }
             }
-            Else {
-                $UserObj = (Get-SmartsheetUser -UserID $U)
-            }
-            If ($Force -or $pscmdlet.ShouldProcess("Removing user with email $($UserObj.Email) from $($GroupObj.Name)")) {
-                $script:SmartsheetClient.GroupResources.RemoveGroupMember(
-                    $GroupID,
-                    $UserObj.ID
-                )
+            Catch {
+                If ($ErrorActionPreference -eq 'Stop') {
+                    $PSCmdlet.ThrowTerminatingError($_)
+                }
+                Else {
+                    Write-Error $_
+                }
             }
         }
     }

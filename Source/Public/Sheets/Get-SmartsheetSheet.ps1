@@ -44,37 +44,27 @@ Function Get-SmartsheetSheet {
         $PagingParams = [Smartsheet.Api.Models.PaginationParameters]::new($true, $null, $null)
     }
     Process {
-        If ($ListOrgSheets) {
-            Try {
+        Try {
+            If ($ListOrgSheets) {
                 $Script:SmartsheetClient.UserResources.SheetResources.ListOrgSheets(
                     $PagingParams,
                     $ModifiedSince
                 )
             }
-            Catch {
-                If ($ErrorActionPreference -eq 'Stop') {
-                    $PSCmdlet.ThrowTerminatingError($_)
-                }
-                Else {
-                    Write-Error $_
-                }
-            }
-        }
-        Else {
-            Try {
+            Else {
                 $cript:SmartsheetClient.SheetResources.ListSheets(
                     $Include,
                     $PagingParams,
                     $ModifiedSince
                 )
             }
-            Catch {
-                If ($ErrorActionPreference -eq 'Stop') {
-                    $PSCmdlet.ThrowTerminatingError($_)
-                }
-                Else {
-                    Write-Error $_
-                }
+        }
+        Catch {
+            If ($ErrorActionPreference -eq 'Stop') {
+                $PSCmdlet.ThrowTerminatingError($_)
+            }
+            Else {
+                Write-Error $_
             }
         }
     }
