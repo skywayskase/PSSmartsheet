@@ -49,27 +49,17 @@ Function Get-SmartsheetColumn {
         $PagingParams = [Smartsheet.Api.Models.PaginationParameters]::new($true, $null, $null)
     }
     Process {
-        If ($ColumnID) {
-            ForEach ($column In $ColumnID) {
-                Try {
+        Try {
+            If ($ColumnID) {
+                ForEach ($column In $ColumnID) {
                     $Script:SmartsheetClient.SheetResources.ColumnResources.getColumn(
                         $SheetID,
                         $column,
                         $Include
                     )
                 }
-                Catch {
-                    If ($ErrorActionPreference -eq 'Stop') {
-                        $PSCmdlet.ThrowTerminatingError($_)
-                    }
-                    Else {
-                        Write-Error $_
-                    }
-                }
             }
-        }
-        Else {
-            Try {
+            Else {
                 $Script:SmartsheetClient.SheetResources.ColumnResources.ListColumns(
                     $SheetID,
                     $Include,
@@ -77,13 +67,13 @@ Function Get-SmartsheetColumn {
                     $level
                 )
             }
-            Catch {
-                If ($ErrorActionPreference -eq 'Stop') {
-                    $PSCmdlet.ThrowTerminatingError($_)
-                }
-                Else {
-                    Write-Error $_
-                }
+        }
+        Catch {
+            If ($ErrorActionPreference -eq 'Stop') {
+                $PSCmdlet.ThrowTerminatingError($_)
+            }
+            Else {
+                Write-Error $_
             }
         }
     }
