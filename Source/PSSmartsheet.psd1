@@ -4,7 +4,7 @@
     RootModule        = 'PSSmartsheet.psm1'
     
     # Version number of this module.
-    ModuleVersion     = '0.0.5'
+    ModuleVersion     = '0.0.6'
     
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -16,7 +16,7 @@
     Author            = 'Skylar Ragan'
     
     # Company or vendor of this module
-    CompanyName       = 'Smartsheet'
+    # CompanyName       = ''
     
     # Copyright statement for this module
     Copyright         = '(c) Skylar Ragan. All rights reserved.'
