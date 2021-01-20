@@ -1,4 +1,3 @@
-Function Get-SmartsheetSheet {
 <#
     .SYNOPSIS
         Retrieves a list of sheets
@@ -22,8 +21,9 @@ Function Get-SmartsheetSheet {
     .NOTES
         Additional information about the function.
 #>
-    
+Function Get-SmartsheetSheet {
     [CmdletBinding(DefaultParameterSetName = 'Individual')]
+    [OutputType([Smartsheet.Api.Models.Sheet[]])]
     Param
     (
         [Parameter(ParameterSetName = 'FullOrg')]
@@ -49,14 +49,14 @@ Function Get-SmartsheetSheet {
                 $Script:SmartsheetClient.UserResources.SheetResources.ListOrgSheets(
                     $PagingParams,
                     $ModifiedSince
-                )
+                ).data
             }
             Else {
                 $cript:SmartsheetClient.SheetResources.ListSheets(
                     $Include,
                     $PagingParams,
                     $ModifiedSince
-                )
+                ).data
             }
         }
         Catch {
