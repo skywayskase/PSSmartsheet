@@ -1,4 +1,3 @@
-Function Get-SmartsheetColumn {
 <#
     .SYNOPSIS
         Gets a specified column or a list of columns on a specified sheet
@@ -10,7 +9,7 @@ Function Get-SmartsheetColumn {
         Sheet Id of the sheet being accessed.
     
     .PARAMETER Include
-        A description of the Include parameter.
+        Represents specific elements to include in a response.
     
     .PARAMETER ColumnID
         Column Id in the sheet being accessed.
@@ -24,8 +23,9 @@ Function Get-SmartsheetColumn {
     .NOTES
         Additional information about the function.
 #>
-    
+Function Get-SmartsheetColumn {
     [CmdletBinding()]
+    [OutputType([Smartsheet.Api.Models.Column])]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -65,7 +65,7 @@ Function Get-SmartsheetColumn {
                     $Include,
                     $PagingParams,
                     $level
-                )
+                ).data
             }
         }
         Catch {
