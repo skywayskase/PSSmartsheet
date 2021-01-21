@@ -25,10 +25,8 @@ Function New-SSCellObject {
         An inbound link from a cell in another sheet. This cell's value mirrors the linked cell's value.
     
     .EXAMPLE
-        PS C:\> New-SSCellObject
+        $Cell = New-SSCellObject -ColumnId '5005385858869124'
     
-    .NOTES
-        Additional information about the function.
 #>
     
     [CmdletBinding()]

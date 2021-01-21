@@ -13,10 +13,8 @@ Function Search-SmartsheetSheet {
         Sheet Id of the sheet being searched
     
     .EXAMPLE
-        PS C:\> Search-SmartsheetSheets -Query 'Value1'
+        Search-SmartsheetSheets -Query 'Stuff'
     
-    .NOTES
-        Additional information about the function.
 #>
     
     [CmdletBinding()]

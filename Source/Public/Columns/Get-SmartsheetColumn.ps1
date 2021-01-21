@@ -1,3 +1,4 @@
+Function Get-SmartsheetColumn {
 <#
     .SYNOPSIS
         Gets a specified column or a list of columns on a specified sheet
@@ -18,12 +19,12 @@
         Specifies whether new functionality, such as multi-contact data is returned in a backwards-compatible, text format (level=0, default), multi-contact data (level=1), or multi-picklist data (level=2).
     
     .EXAMPLE
-        PS C:\> Get-SmartsheetColumns -SheetID $value1
+        Get-SmartsheetColumn -SheetID '9283173393803140'
     
-    .NOTES
-        Additional information about the function.
+    .EXAMPLE
+        Get-SmartsheetColumn -SheetID '9283173393803140' -ColumnID '7960873114331012'
+    
 #>
-Function Get-SmartsheetColumn {
     [CmdletBinding()]
     [OutputType([Smartsheet.Api.Models.Column])]
     Param

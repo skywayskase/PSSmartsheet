@@ -19,10 +19,8 @@ Function Get-SmartsheetRow {
         A comma-separated list of optional elements to not include in the response
     
     .EXAMPLE
-        		PS C:\> Get-SmartsheetRow -SheetID $value1 -RowID $value2
+        Get-SmartsheetRow -SheetID '4583173393803140' -RowID '2361756178769796'
     
-    .NOTES
-        Additional information about the function.
 #>
     
     [CmdletBinding()]

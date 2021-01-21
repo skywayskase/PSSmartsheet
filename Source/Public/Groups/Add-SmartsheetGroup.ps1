@@ -20,7 +20,11 @@ Function Add-SmartsheetGroup {
         Email address(es) of user(s) to initially populate the new group with.
     
     .EXAMPLE
-        		PS C:\> Add-SmartsheetGroup
+        $Group = New-SSGroupObject -Name 'A new Group' -MemberEmail 'john.doe@example.com','Jane.doe@example.com'
+        Add-SmartsheetGroup -GroupObject $Group
+    
+    .EXAMPLE
+        Add-SmartsheetGroup -Name 'A new Group' -Description 'A description of the group' -MemberEmail 'john.doe@example.com','Jane.doe@example.com'
     
     .NOTES
         This operation is only available to group administrators and system administrators.

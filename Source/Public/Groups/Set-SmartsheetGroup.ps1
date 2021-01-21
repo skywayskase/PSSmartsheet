@@ -23,7 +23,11 @@ Function Set-SmartsheetGroup {
         NOTE: Must be either a Group Admin or System Admin
     
     .EXAMPLE
-        		PS C:\> Set-SmartsheetGroup -GroupID $value1
+        $Group = New-SSGroupObject -GroupId '2331373580117892' -Name 'New Group Name' -OwnerID '2331373580117892'
+        Set-SmartsheetGroup -GroupObject $group
+    
+    .EXAMPLE
+        New-SSGroupObject -GroupId '2331373580117892' -Name 'New Group Name' -OwnerID '2331373580117892' | Set-SmartsheetGroup
     
     .NOTES
         This operation is only available to group administrators and system administrators.

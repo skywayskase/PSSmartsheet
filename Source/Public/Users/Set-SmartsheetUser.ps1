@@ -10,10 +10,9 @@ Function Set-SmartsheetUser {
         A user object created with the New-SSUserObject cmdlet
     
     .EXAMPLE
-        PS C:\> Set-SmartsheetUser
+        $User = New-SSUserObject -ID '82349925918590' -LicensedSheetCreator -Admin
+        Set-SmartsheetUser -UserObject $user
     
-    .NOTES
-        Additional information about the function.
 #>
     
     [CmdletBinding()]

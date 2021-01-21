@@ -1,3 +1,4 @@
+Function Add-SmartsheetColumn {
 <#
     .SYNOPSIS
         Inserts one or more columns into the sheet specified.
@@ -12,12 +13,13 @@
         One or more column objects to add to the specified sheet.
     
     .EXAMPLE
-        		PS C:\> Add-SmartsheetColumn -SheetId $value1 -Column $value2
+        $column1 = New-SSColumnObject -Title "Column 1" -Primary
+        $column2 = New-SSColumnObject -Title "Second Column" -Type CHECKBOX
+        Add-SmartsheetColumn -SheetId '2252168947361668' -Column $column1,$Column2
     
     .NOTES
         If multiple columns are specified in the request, the index attribute must be set to the same value for all columns.
 #>
-Function Add-SmartsheetColumn {
     [CmdletBinding()]
     Param
     (

@@ -25,10 +25,11 @@ Function Copy-SmartsheetSheet {
         A comma-separated list of elements to copy
     
     .EXAMPLE
-        PS C:\> Copy-SmartsheetSheet -SheetID $value1 -DestinationID $value2 -DestinationType $value3 -NewName 'Value4'
+        Copy-SmartsheetSheet -SheetID '9283173393803140' -DestinationID '3791509922310020' -DestinationType FOLDER -NewName 'A copy of sheet 1'
     
-    .NOTES
-        Additional information about the function.
+    .EXAMPLE
+        Copy-SmartsheetSheet -SheetID '9283173393803140' -NewName 'Another copy of a sheet' -Includes DATA
+    
 #>
     
     [CmdletBinding()]
@@ -56,11 +57,11 @@ Function Copy-SmartsheetSheet {
         }
     }
     Process {
-        $Destination = [Smartsheet.Api.Models.ContainerDestination]::new(
-            $DestinationID,
-            $DestinationType,
-            $NewName
-        )
+        $Destination = [Smartsheet.Api.Models.ContainerDestination]::new()
+        $Destination.DestinationId = $DestinationID
+        $Destination.DestinationType = $DestinationType
+        $Destination.NewName = $NewName
+        
         Try {
             $script:SmartsheetClient.SheetResources.CopySheet(
                 $SheetID,

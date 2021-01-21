@@ -22,10 +22,8 @@ Function Add-SmartsheetSheetFromTemplate {
         Folder Id where the sheet will be created
     
     .EXAMPLE
-        PS C:\> Add-SmartsheetSheetFromTemplate
+        Add-SmartsheetSheetFromTemplate -Title "A new sheet" -FromID '7679398137620356' -Include ATTACHMENTS,DISCUSSIONS
     
-    .NOTES
-        Additional information about the function.
 #>
     
     [CmdletBinding()]

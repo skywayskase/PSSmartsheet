@@ -19,10 +19,11 @@ Function Move-SmartsheetSheet {
         workspace
     
     .EXAMPLE
-        PS C:\> Move-SmartsheetSheet
+        Move-SmartsheetSheet -SheetID '9283173393803140' -DestinationID '3791509922310020' -DestinationType FOLDER
     
-    .NOTES
-        Additional information about the function.
+    .EXAMPLE
+        Move-SmartsheetSheet -SheetID '9283173393803140'
+    
 #>
     
     [CmdletBinding()]
@@ -47,11 +48,10 @@ Function Move-SmartsheetSheet {
         }
     }
     Process {
-        $Destination = [Smartsheet.Api.Models.ContainerDestination]::new(
-            $DestinationID,
-            $DestinationType,
-            $Null
-        )
+        $Destination = [Smartsheet.Api.Models.ContainerDestination]::new()
+        $Destination.DestinationId = $DestinationID
+        $Destination.DestinationType = $DestinationType
+        
         Try {
             $script:SmartsheetClient.SheetResources.MoveSheet(
                 $SheetID,

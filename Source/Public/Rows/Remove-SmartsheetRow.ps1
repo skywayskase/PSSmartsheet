@@ -16,10 +16,10 @@ Function Remove-SmartsheetRow {
         Deletes the specified rows without prompting
     
     .EXAMPLE
-        		PS C:\> Remove-SmartsheetRow -SheetId $value1 -RowIds $value2
+        Remove-SmartsheetRow -SheetId '2252168947361668' -RowIds '207098194749316','207098194749317' -Force
     
     .NOTES
-        Additional information about the function.
+        This operation deletes ALL child rows of the specified row.
 #>
     
     [CmdletBinding(ConfirmImpact = 'High',

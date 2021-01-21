@@ -19,10 +19,8 @@ Function Copy-SmartsheetRow {
         A comma-separated list of row elements to copy in addition to the cell data
     
     .EXAMPLE
-        PS C:\> Copy-SmartsheetRow -Source $value1 -Destination $value2 -Rows $value3
+        Copy-SmartsheetRow -Source '4583173393803140' -Destination '2258256056870788' -Rows '145417762563972','8026717110462340'
     
-    .NOTES
-        Additional information about the function.
 #>
     
     [CmdletBinding()]

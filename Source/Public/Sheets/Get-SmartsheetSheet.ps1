@@ -13,13 +13,14 @@
         When specified with a date and time value, response only includes the objects that are modified on or after the date and time specified. If you need to keep track of frequent changes, it may be more useful to use Read-SmartsheetSheet and reference the 'Version' property.
     
     .PARAMETER Include
-        A description of the Include parameter.
+        A comma-separated list of optional elements to include in the respons.
     
     .EXAMPLE
-        PS C:\> Get-SmartsheetSheets
+        Get-SmartsheetSheet
     
-    .NOTES
-        Additional information about the function.
+    .EXAMPLE
+        Get-SmartsheetSheet -ListOrgSheets
+
 #>
 Function Get-SmartsheetSheet {
     [CmdletBinding(DefaultParameterSetName = 'Individual')]

@@ -7,22 +7,22 @@ Function Add-SmartsheetSheet {
         Creates a sheet from scratch in either the user's "Sheets" folder, or the specified folder or workspace
     
     .PARAMETER Name
-        A description of the Name parameter.
+        The name for the new sheet.
     
     .PARAMETER Column
-        A description of the Column parameter.
+        One or more column objects built using New-SSColumnObject.
     
     .PARAMETER WorkspaceID
-        A description of the WorkspaceID parameter.
+        The ID of a workspace to create the sheet in.
     
     .PARAMETER FolderID
-        A description of the FolderID parameter.
+        The ID of a folder to create the sheet in.
     
     .EXAMPLE
-        PS C:\> Add-SmartsheetSheet
+        $column1 = New-SSColumnObject -Title "Column 1" -Primary
+        $column2 = New-SSColumnObject -Title "Second Column" -Type CHECKBOX
+        Add-SmartsheetSheet -Column $column1,$column2
     
-    .NOTES
-        Additional information about the function.
 #>
     
     [CmdletBinding()]

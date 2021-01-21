@@ -7,14 +7,20 @@ Function Add-SmartsheetUser {
         Adds a user to the organization account.
     
     .PARAMETER UserObject
-        A description of the User parameter.
+        One or more user objects created using New-SSUserObject.
     
     .PARAMETER sendEmail
         Indicates whether to send a welcome email. Defaults to false.
     
     .EXAMPLE
-        PS C:\> Add-SmartsheetUser -User $value1
+        $User = New-SSUserObject -Email "test@example.com" -LicensedSheetCreator
+        Add-SmartsheetUser -UserObject $User
     
+    .EXAMPLE
+        $User1 = New-SSUserObject -Email "test@example.com" -LicensedSheetCreator
+        $user2 = New-SSUserObject -Email "secondTest@example.com" -LicensedSheetCreator -Admin
+        Add-SmartsheetUser -UserObject $User1,$user2
+        
     .NOTES
         This operation is only available to system administrators
         

@@ -10,10 +10,11 @@ Function Get-SmartsheetGroup {
         The group ID of a specific group
     
     .EXAMPLE
-        PS C:\> Get-SmartsheetGroups
+        Get-SmartsheetGroup
     
-    .NOTES
-        Additional information about the function.
+    .EXAMPLE
+        Get-SmartsheetGroup -GroupID '6932724448552836'
+    
 #>
     
     [CmdletBinding()]

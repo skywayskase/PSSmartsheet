@@ -25,10 +25,10 @@ Function Read-SmartsheetSheet {
         A comma-separated list of row numbers on which to filter the rows included in the result. Non-existent row numbers are ignored.
     
     .EXAMPLE
-        PS C:\> Read-SmartsheetSheet -SheetID $value1
+        Read-SmartsheetSheet -SheetID '4583173393803140'
     
-    .NOTES
-        Additional information about the function.
+    .EXAMPLE
+        Read-SmartsheetSheet -SheetID '4583173393803140' -Include FILTERS,DISCUSSIONS -Exclude NONEXISTANTCELLS
 #>
     
     [CmdletBinding()]

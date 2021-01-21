@@ -13,7 +13,7 @@ Function Add-SmartsheetGroupMember {
         ID of the group to add members to.
     
     .EXAMPLE
-        		PS C:\> Add-SmartsheetGroupMembers -Email $value1 -GroupID $value2
+        Add-SmartsheetGroupMembers -Email 'john.doe@example.com','Jane.doe@example.com' -GroupID '7917992160847748'
     
     .NOTES
         This operation is only available to group administrators and system administrators.

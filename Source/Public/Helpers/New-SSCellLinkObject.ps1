@@ -16,7 +16,8 @@ Function New-SSCellLinkObject {
         The SheetId of the cell to link
     
     .EXAMPLE
-        		PS C:\> New-SSCellLinkObject -ColumnId $value1 -RowId $value2 -SheetId $value3
+        $CellLink = New-SSCellLinkObject -ColumnId '1888812600190852' -RowId '6572427401553796' -SheetId '2068827774183300'
+        $Cell = New-SSCellObject -ColumnId '7518312134403972' -LinkInFromCell $CellLink
     
     .NOTES
         A given row or cell update operation may contain only link updates, or no link updates.

@@ -21,15 +21,22 @@ Function Remove-SmartsheetUser {
     .PARAMETER TransferSheets
         If set, the removed user's sheets are transferred to the user specified with the TransferTo parameter. Else, sheets are not transferred
     
+    .PARAMETER Force
+        Forces deletion of specified user without prompting
+    
     .EXAMPLE
-        PS C:\> Remove-SmartsheetUser
+        Remove-SmartsheetUser -User 'Bad.Employee@example.com' -RemoveFromSharing
+        
+        Example
+        Remove-SmartsheetUser -User '94094820842' -TransferTo 'John.Manager@example.com' -TransferSheets
     
     .NOTES
         This operation is only available to system administrators.
         The transferTo and transferSheets parameters cannot be specified for a user who has not yet accepted an invitation to join the organization account (that is, if user status=PENDING).
 #>
     
-    [CmdletBinding(ConfirmImpact = 'High',
+    [CmdletBinding(DefaultParameterSetName = 'Transfer',
+                   ConfirmImpact = 'High',
                    SupportsShouldProcess = $true)]
     Param
     (
@@ -42,10 +49,13 @@ Function Remove-SmartsheetUser {
         $RemoveFromSharing,
         [Parameter(ParameterSetName = 'Transfer',
                    Mandatory = $true)]
+        [string]
         $TransferTo,
         [Parameter(ParameterSetName = 'Transfer')]
         [switch]
-        $TransferSheets
+        $TransferSheets,
+        [switch]
+        $Force
     )
     
     Begin {
@@ -68,9 +78,9 @@ Function Remove-SmartsheetUser {
                 $UserObj = Get-SmartsheetUser -Email $U
             }
             Else {
-            	$UserObj = (Get-SmartsheetUser -UserID $U)
+                $UserObj = (Get-SmartsheetUser -UserID $U)
             }
-            If ($pscmdlet.ShouldProcess("Removing user with email $($UserObj.Email) from Org")) {
+            If ($Force -or $pscmdlet.ShouldProcess("Removing user with email $($UserObj.Email) from Org")) {
                 Try {
                     If ($PSCmdlet.ParameterSetName -eq 'Transfer') {
                         $script:SmartsheetClient.UserResources.RemoveUser($userObj.ID,

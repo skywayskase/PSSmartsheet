@@ -41,10 +41,10 @@ Function New-SSRowObject {
         Id of a row to update
     
     .EXAMPLE
-        PS C:\> New-SSRowObject
+        $Cell1 = New-SSCellObject -ColumnId '7960873114331012' -Value $true
+        $Cell2 = New-SSCellObject -ColumnId '642523719853956' -Value "Enabled"
+        $Row1 = NewSSRowObject -ToBottom -Cells $Cell1,$Cell2
     
-    .NOTES
-        Additional information about the function.
 #>
     
     [CmdletBinding()]

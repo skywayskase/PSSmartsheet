@@ -13,7 +13,7 @@ Function Remove-SmartsheetGroup {
         Removes group without prompting
     
     .EXAMPLE
-        PS C:\> Remove-SmartsheetGroup -GroupID $value1
+        Remove-SmartsheetGroup -GroupID '6932724448552836' -Force
     
     .NOTES
         This operation is only available to group administrators and system administrators.

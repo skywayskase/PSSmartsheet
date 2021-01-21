@@ -1,3 +1,4 @@
+Function Set-SmartsheetColumn {
 <#
     .SYNOPSIS
         Updates properties of the column, moves the column, and/or renames the column.
@@ -12,7 +13,8 @@
         A column object representing the column to update. Must include an ID for the specified column.
     
     .EXAMPLE
-        		PS C:\> Set-SmartsheetColumn -SheetId $value1 -Column $value2
+        $column = New-SSColumnObject -Title "Column 1" -Id '5005385858869124' -Index 0
+        Set-SmartsheetColumn -SheetId '2252168947361668' -Column $column
     
     .NOTES
         You cannot change the type of a Primary column.
@@ -20,7 +22,6 @@
         If the column type is changed, all cells in the column are converted to the new column type and column validation is cleared.
         Type is optional when moving or renaming, but required when changing type or dropdown values.
 #>
-Function Set-SmartsheetColumn {
     [CmdletBinding()]
     Param
     (

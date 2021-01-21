@@ -23,10 +23,11 @@ Function New-SSGroupObject {
         NOTE: Must be either a Group Admin or System Admin
     
     .EXAMPLE
-        		PS C:\> New-SSGroupMemberObject -Name 'Value1'
+        $Group = New-SSGroupObject -Name 'A new Group' -MemberEmail 'john.doe@example.com','Jane.doe@example.com'
     
-    .NOTES
-        Additional information about the function.
+    .EXAMPLE
+        $Group = New-SSGroupObject -GroupId '2331373580117892' -Name 'New Group Name' -OwnerID '2331373580117892'
+    
 #>
     
     [CmdletBinding(DefaultParameterSetName = 'New')]

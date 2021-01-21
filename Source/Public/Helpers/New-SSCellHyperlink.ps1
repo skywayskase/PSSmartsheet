@@ -19,13 +19,14 @@ Function New-SSCellHyperlinkObject {
         A URL to link to.
     
     .EXAMPLE
-        		PS C:\> New-SSCellHyperlinkObject
+        $HyperLink = New-SSCellHyperlinkObject -URL 'https://smartsheet-platform.github.io/api-docs/'
+        $Cell = New-SSCellObject -ColumnId '7518312134403972' -HyperLink $HyperLink
     
     .NOTES
         If no parameters are specified, object will reset a hyperlink.
 #>
     
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'URL')]
     [OutputType([Smartsheet.Api.Models.Hyperlink])]
     Param
     (
@@ -42,9 +43,9 @@ Function New-SSCellHyperlinkObject {
         [long]
         $SightId,
         [Parameter(ParameterSetName = 'URL')]
-        [ValidateNotNullOrEmpty()]
         [ValidatePattern('http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?')]
-        [long]
+        [ValidateNotNullOrEmpty()]
+        [string]
         $URL
     )
     
@@ -53,5 +54,4 @@ Function New-SSCellHyperlinkObject {
         $HyperlinkObj.$_ = $PSBoundParameters[$_]
     }
     $HyperlinkObj
-    
 }

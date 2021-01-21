@@ -35,10 +35,10 @@ Function New-SSColumnObject {
         The display width of the column in pixels.
     
     .EXAMPLE
-        PS C:\> New-SSColumnObject -Title 'Value1'
+        $column1 = New-SSColumnObject -Title "Column 1" -Primary
     
-    .NOTES
-        Additional information about the function.
+    .EXAMPLE
+        $Column = New-SSColumnObject -Title 'New Column Name' -Id '1888812600190852'
 #>
     
     [CmdletBinding(DefaultParameterSetName = 'RegularColumn')]

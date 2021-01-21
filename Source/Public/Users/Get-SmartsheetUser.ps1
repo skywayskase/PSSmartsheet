@@ -7,16 +7,16 @@ Function Get-SmartsheetUser {
         Returns the specified Smartsheet user or a list of users
     
     .PARAMETER UserID
-        A description of the UserID parameter.
+        The ID of a specific user to get.
     
     .PARAMETER Email
-        A description of the Email parameter.
+        The email address or list of email addresses of users to get.
     
     .PARAMETER List
-        A description of the List parameter.
+        Returns an array of all users in the org.
     
     .PARAMETER Me
-        A description of the Me parameter.
+        Returns a user object representing the calling user.
     
     .EXAMPLE
         Get-SmartsheetUsers -Email "John.Doe@example.com"
@@ -41,8 +41,6 @@ Function Get-SmartsheetUser {
     .OUTPUTS
         Smartsheet.Api.Models.User, Smartsheet.Api.Models.UserProfile, Smartsheet.Api.Models.User, Smartsheet.Api.Models.UserProfile
     
-    .NOTES
-        Additional information about the function.
 #>
     
     [CmdletBinding(DefaultParameterSetName = 'Me',

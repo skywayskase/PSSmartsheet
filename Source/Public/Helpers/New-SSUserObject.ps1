@@ -35,8 +35,6 @@ Function New-SSUserObject {
         
         Returns a user object with the email of "test@example.com" that will be a licensed sheet creator that can be fed to Add-SmartsheetUser creating the account.
     
-    .NOTES
-        Additional information about the function.
 #>
     
     [CmdletBinding(DefaultParameterSetName = 'NewUserObject')]

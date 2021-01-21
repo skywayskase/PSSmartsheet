@@ -16,7 +16,7 @@ Function Remove-SmartsheetGroupMember {
         Removes user(s) group the specified group without prompting
     
     .EXAMPLE
-        PS C:\> Remove-SmartsheetGroupMember -GroupID $value1 -UserID $value2
+        Remove-SmartsheetGroupMember -GroupID '7917992160847748' -UserID '1539725208119172' -Force
     
     .NOTES
         This operation is only available to group administrators and system administrators.

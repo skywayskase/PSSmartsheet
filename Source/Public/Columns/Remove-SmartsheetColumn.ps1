@@ -1,3 +1,4 @@
+Function Remove-SmartsheetColumn {
 <#
     .SYNOPSIS
         Deletes a specified column.
@@ -15,12 +16,9 @@
         Forces the rows to be deleted without prompting.
     
     .EXAMPLE
-        PS C:\> Remove-SmartsheetColumn -SheetId $value1 -ColumnId $value2
+        Remove-SmartsheetColumn -SheetId '9283173393803140' -ColumnId '0123456789012345' -Force
     
-    .NOTES
-        Additional information about the function.
 #>
-Function Remove-SmartsheetColumn {
     [CmdletBinding(ConfirmImpact = 'High',
                    SupportsShouldProcess = $true)]
     Param

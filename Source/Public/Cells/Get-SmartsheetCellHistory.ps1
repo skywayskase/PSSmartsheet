@@ -19,10 +19,10 @@ Function Get-SmartsheetCellHistory {
         A comma-separated list of elements to include in the query.
     
     .EXAMPLE
-        		PS C:\> Get-SmartsheetCellHistory -SheetID $value1 -RowID $value2 -ColumnID $value3
+        Get-SmartsheetCellHistory -SheetID '9283173393803140' -RowID '0123456789012345' -ColumnID '4567890123456789,'
     
     .NOTES
-        Additional information about the function.
+        This is a resource-intensive operation and incurs 10 additional requests against the rate limit.
 #>
     
     [CmdletBinding()]
