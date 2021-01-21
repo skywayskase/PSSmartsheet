@@ -24,13 +24,13 @@ Function Initialize-SmartsheetClient {
         Use this switch if you are interacting with Smartsheet Gov
     
     .EXAMPLE
-        New-SmartsheetClient -AccessToken 'll352u9jujauoqz4gstvsae05'
+        Initialize-SmartsheetClient -AccessToken 'll352u9jujauoqz4gstvsae05'
     
     .EXAMPLE
-        New-SmartsheetClient -AccessToken 'll352u9jujauoqz4gstvsae05' -AssumedUser 'john.doe@example.com'
+        Initialize-SmartsheetClient -AccessToken 'll352u9jujauoqz4gstvsae05' -AssumedUser 'john.doe@example.com'
 
     .Example
-        New-SmartsheetClient -AccessToken 'll352u9jujauoqz4gstvsae05' -Gov
+        Initialize-SmartsheetClient -AccessToken 'll352u9jujauoqz4gstvsae05' -Gov
 
 #>
     
