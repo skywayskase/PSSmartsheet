@@ -14,7 +14,7 @@ Function Initialize-SmartsheetClient {
         NOTE: You must have Sys Admin privileges to use this.
     
     .PARAMETER CustomURI
-        Use this Param if you are interacting with a custom intance or Smartsheet.
+        Use this Param if you are interacting with a custom intance of Smartsheet.
         NOTE: Intended for internal use only
     
     .PARAMETER DefaultURI
