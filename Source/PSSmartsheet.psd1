@@ -7,7 +7,7 @@
     ModuleVersion     = '0.0.6'
     
     # Supported PSEditions
-    # CompatiblePSEditions = @()
+    CompatiblePSEditions = @('Core', 'Desktop')
     
     # ID used to uniquely identify this module
     GUID              = '599a5f68-e16b-430f-8314-84a2bf7bac6f'
@@ -95,10 +95,10 @@
             Tags = @('SmartSheet', 'API', 'Admin')
             
             # A URL to the license for this module.
-            # LicenseUri = ''
+            LicenseUri = 'https://github.com/skywayskase/PSSmartsheet/blob/main/LICENSE'
             
             # A URL to the main website for this project.
-            # ProjectUri = ''
+            ProjectUri = 'https://github.com/skywayskase/PSSmartsheet'
             
             # A URL to an icon representing this module.
             # IconUri = ''
