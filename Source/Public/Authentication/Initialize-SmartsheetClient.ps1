@@ -24,10 +24,14 @@ Function Initialize-SmartsheetClient {
         Use this switch if you are interacting with Smartsheet Gov
     
     .EXAMPLE
-        PS C:\> New-SmartsheetClient -AccessToken 'll352u9jujauoqz4gstvsae05'
+        New-SmartsheetClient -AccessToken 'll352u9jujauoqz4gstvsae05'
     
-    .NOTES
-        Additional information about the function.
+    .EXAMPLE
+        New-SmartsheetClient -AccessToken 'll352u9jujauoqz4gstvsae05' -AssumedUser 'john.doe@example.com'
+
+    .Example
+        New-SmartsheetClient -AccessToken 'll352u9jujauoqz4gstvsae05' -Gov
+
 #>
     
     [CmdletBinding(DefaultParameterSetName = 'DefaultURI')]
