@@ -101,7 +101,7 @@
             ProjectUri = 'https://github.com/skywayskase/PSSmartsheet'
             
             # A URL to an icon representing this module.
-            # IconUri = ''
+            IconUri = 'https://lh3.googleusercontent.com/-gr588Q7q2AI/Wygda7E1irI/AAAAAAAAAGE/13kbguD6xTUmR1PFuyva0KKxn1IhKwO0QCLcBGAs/s400/smartsheet-128.png'
             
             # ReleaseNotes of this module
             ReleaseNotes = ''
