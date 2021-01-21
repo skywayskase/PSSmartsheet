@@ -68,7 +68,7 @@ Function Initialize-SmartsheetClient {
             [Void]$Client.SetAssumedUser($AssumedUser)
         }
         Try {
-            $client.Build().UserResources.GetCurrentUser()
+            [Void]$client.Build().UserResources.GetCurrentUser()
             $script:SmartsheetClient = $Client.Build()
         }
         Catch {
