@@ -52,7 +52,4 @@ Function Remove-SmartsheetSheet {
             }
         }
     }
-    If ($pscmdlet.ShouldProcess("Target", "Operation")) {
-        #TODO: Place script here
-    }
 }
