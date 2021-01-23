@@ -25,11 +25,11 @@ Initialize-SmartsheetClient -AccessToken $AVariableRepresentingYourToken
 If you don't, most of the commands will yell at you to do so anyway.
 
 ## Code of Conduct
-Please adhere to our [CODE of Conduct](https://github.com/skywayskase/PSSmartsheet/blob/main/CODE_OF_CONDUCT.md) when interacting with the repo.
+Please adhere to our [CODE of Conduct](https://github.com/skywayskase/PSSmartsheet/blob/main/.github/CODE_OF_CONDUCT.md) when interacting with the repo.
 
 ## Contributing ##
 Want to help make this module even better? Awesome!
-Please check out our [Contribution Guidelines](https://github.com/skywayskase/PSSmartsheet/blob/main/CONTRIBUTING.md)!
+Please check out our [Contribution Guidelines](https://github.com/skywayskase/PSSmartsheet/blob/main/.github/CONTRIBUTING.md)!
 
 ## Please Note ##
 While I am/was an employee of Smartsheet at the time that I wrote this, they are not responsible for this module and will likely be unable to help you troubleshoot this module.
