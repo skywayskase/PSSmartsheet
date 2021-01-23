@@ -31,6 +31,6 @@ Please adhere to our [CODE of Conduct](https://github.com/skywayskase/PSSmartshe
 Want to help make this module even better? Awesome!
 Please check out our [Contribution Guidelines](https://github.com/skywayskase/PSSmartsheet/blob/main/.github/CONTRIBUTING.md)!
 
-## Please Note ##
+## Disclaimer ##
 While I am/was an employee of Smartsheet at the time that I wrote this, they are not responsible for this module and will likely be unable to help you troubleshoot this module.
 That said, their support team is pretty great and they should be able to help you with any questions regarding the application itself and/or the API itself.
