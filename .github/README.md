@@ -3,7 +3,7 @@
 ## Description ##
 Powershell Module for interacting with the Smartsheet API.
 
-I wrote this module part as a learning exercise, but also to be used by the scripts I've written for work. It is by no means feature complete. I'm hoping that other may find it usefull, and even be able to contribute to make it better.
+I wrote this module part as a learning exercise, but also to be used by the scripts I've written for work. It is by no means feature complete. I'm hoping that others may find it usefull, and even be able to contribute to make it better.
 
 ## Installation ##
 This module is available for download on the Powershell Gallery at https://www.powershellgallery.com/packages/PSSmartsheet/.
@@ -25,7 +25,7 @@ Initialize-SmartsheetClient -AccessToken $AVariableRepresentingYourToken
 If you don't, most of the commands will yell at you to do so anyway.
 
 ## Code of Conduct
-Please adhere to our [CODE of Conduct](https://github.com/skywayskase/PSSmartsheet/blob/main/.github/CODE_OF_CONDUCT.md) when interacting with the repo.
+Please adhere to our [Code of Conduct](https://github.com/skywayskase/PSSmartsheet/blob/main/.github/CODE_OF_CONDUCT.md) when interacting with the repo.
 
 ## Contributing ##
 Want to help make this module even better? Awesome!
