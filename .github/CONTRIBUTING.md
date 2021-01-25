@@ -53,7 +53,7 @@ Please follow these guidelines for any content being added:
 * **Every Pull Request must...**
     > These can be added in during the pull request review process, but are nice to have if possible
     * have the module version bumped appropriately in the manifest (Major for any large updates, Minor for any new functionality, Patch for any hotfixes)
-    * have an entry in the Changelog describing what was added, updated and/or fixed with this version number
+    * have an entry in the [Changelog](https://github.com/skywayskase/PSSmartsheet/blob/main/CHANGELOG.md) describing what was added, updated and/or fixed with this version number
         * *Please follow the same format already present*
 
 ### Adding or Updating Functions
