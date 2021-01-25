@@ -49,6 +49,7 @@ Function Get-SmartsheetUser {
     [OutputType([Smartsheet.Api.Models.User], ParameterSetName = 'List')]
     [OutputType([Smartsheet.Api.Models.UserProfile], ParameterSetName = 'UserID')]
     [OutputType([Smartsheet.Api.Models.User], ParameterSetName = 'Email')]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Justification='Param used for ParameterSetName matching')]
     Param
     (
         [Parameter(ParameterSetName = 'UserID')]

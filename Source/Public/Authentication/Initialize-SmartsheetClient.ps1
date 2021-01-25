@@ -35,6 +35,7 @@ Function Initialize-SmartsheetClient {
 #>
     
     [CmdletBinding(DefaultParameterSetName = 'DefaultURI')]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Justification='Param used for ParameterSetName matching')]
     Param
     (
         [Parameter(Mandatory = $true)]
