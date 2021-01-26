@@ -27,7 +27,7 @@ jobs:
         run: |
           $Module = Build-Module -SourcePath .\Source\ -passthru
       - name: Lint Built Module
-        shell: powershell
+        shell: pwsh
         run: |
            Invoke-ScriptAnalyzer -Path .\PSSmartsheet\$Module.Version\PSSmartsheet.psm1 -Settings .\PSScriptAnalyzerSettings.psd1 -Outvariable issues
             $errors   = $issues.Where({$_.Severity -eq 'Error'})
