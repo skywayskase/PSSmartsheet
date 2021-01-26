@@ -39,3 +39,9 @@ jobs:
             } else {
                 Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
             }
+      - name: Deploy
+        shell: pwsh
+        env: 
+          NUGET_KEY: ${{ secrets.PSGALLERY_API_KEY }}
+        run: |
+          Publish-Module -Path .\PSSmartsheet\${{ Steps.build.outputs.ModuleVersion }}\ -NuGetApiKey $env:NUGET_KEY -Verbose
