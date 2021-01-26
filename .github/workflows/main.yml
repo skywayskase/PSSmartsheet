@@ -27,12 +27,11 @@ jobs:
         shell: pwsh
         run: |
           $module = Build-Module -SourcePath .\Source\ -passthru
-          Write-Output "::set-output name=Module::$module"
+          Write-Output "::set-output name=ModuleVersion::$($module.Version.ToString())"
       - name: Lint Built Module
         shell: pwsh
         run: |
-            $module = ${{ Steps.build.outputs.Module }}
-            Invoke-ScriptAnalyzer -Path .\PSSmartsheet\$($Module.Version)\PSSmartsheet.psm1 -Settings .\PSScriptAnalyzerSettings.psd1 -Outvariable issues
+            Invoke-ScriptAnalyzer -Path .\PSSmartsheet\${{ Steps.build.outputs.ModuleVersion }}\PSSmartsheet.psm1 -Settings .\PSScriptAnalyzerSettings.psd1 -Outvariable issues
             $errors   = $issues.Where({$_.Severity -eq 'Error'})
             $warnings = $issues.Where({$_.Severity -eq 'Warning'})
             if ($errors) {
