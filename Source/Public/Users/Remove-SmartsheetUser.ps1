@@ -35,7 +35,8 @@ Function Remove-SmartsheetUser {
         The transferTo and transferSheets parameters cannot be specified for a user who has not yet accepted an invitation to join the organization account (that is, if user status=PENDING).
 #>
     
-    [CmdletBinding(ConfirmImpact = 'High',
+    [CmdletBinding(DefaultParameterSetName = 'Transfer',
+                   ConfirmImpact = 'High',
                    SupportsShouldProcess = $true)]
     Param
     (
@@ -47,10 +48,12 @@ Function Remove-SmartsheetUser {
         [switch]
         $RemoveFromSharing,
         [Parameter(ParameterSetName = 'Transfer',
+                   Mandatory = $false)]
+        [Parameter(ParameterSetName = 'TransferSheets',
                    Mandatory = $true)]
         [string]
         $TransferTo,
-        [Parameter(ParameterSetName = 'Transfer')]
+        [Parameter(ParameterSetName = 'TransferSheets')]
         [switch]
         $TransferSheets,
         [switch]
@@ -81,7 +84,7 @@ Function Remove-SmartsheetUser {
             }
             If ($Force -or $pscmdlet.ShouldProcess("Removing user with email $($UserObj.Email) from Org")) {
                 Try {
-                    If ($PSCmdlet.ParameterSetName -eq 'Transfer') {
+                    If ($TransferToObj) {
                         $script:SmartsheetClient.UserResources.RemoveUser($userObj.ID,
                             $TransferToObj.ID,
                             $TransferSheets.IsPresent,
