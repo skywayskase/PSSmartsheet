@@ -23,13 +23,16 @@ jobs:
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module PSScriptAnalyzer, ModuleBuilder -ErrorAction Stop
       - name: Build Module
+        id: build
         shell: pwsh
         run: |
-          $Module = Build-Module -SourcePath .\Source\ -passthru
+          $module = Build-Module -SourcePath .\Source\ -passthru
+          Write-Output "::set-output name=Module::$module"
       - name: Lint Built Module
         shell: pwsh
         run: |
-           Invoke-ScriptAnalyzer -Path .\PSSmartsheet\$Module.Version\PSSmartsheet.psm1 -Settings .\PSScriptAnalyzerSettings.psd1 -Outvariable issues
+            $module = ${{ Steps.build.outputs.Module }}
+            Invoke-ScriptAnalyzer -Path .\PSSmartsheet\$($Module.Version)\PSSmartsheet.psm1 -Settings .\PSScriptAnalyzerSettings.psd1 -Outvariable issues
             $errors   = $issues.Where({$_.Severity -eq 'Error'})
             $warnings = $issues.Where({$_.Severity -eq 'Warning'})
             if ($errors) {
