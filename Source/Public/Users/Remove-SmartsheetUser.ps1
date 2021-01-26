@@ -35,8 +35,7 @@ Function Remove-SmartsheetUser {
         The transferTo and transferSheets parameters cannot be specified for a user who has not yet accepted an invitation to join the organization account (that is, if user status=PENDING).
 #>
     
-    [CmdletBinding(DefaultParameterSetName = 'Transfer',
-                   ConfirmImpact = 'High',
+    [CmdletBinding(ConfirmImpact = 'High',
                    SupportsShouldProcess = $true)]
     Param
     (
