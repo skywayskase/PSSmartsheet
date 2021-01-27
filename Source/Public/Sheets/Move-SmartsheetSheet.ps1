@@ -31,13 +31,9 @@ Function Move-SmartsheetSheet {
     (
         [long]
         $SheetID,
-        [Parameter(ParameterSetName = 'DestinationSpecified',
-                   Mandatory = $true)]
         [AllowNull()]
         [long]
         $DestinationID = $null,
-        [Parameter(ParameterSetName = 'DestinationSpecified',
-                   Mandatory = $true)]
         [Smartsheet.Api.Models.DestinationType]
         $DestinationType = "HOME"
     )
