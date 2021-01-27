@@ -1,5 +1,6 @@
 # PSSmartsheet
 [![BuildStatus](https://github.com/skywayskase/PSSmartsheet/workflows/Build%20and%20Deploy/badge.svg)](https://github.com/skywayskase/PSSmartsheet/actions?query=workflow%3A%22Build+and+Deploy%22)
+[![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/PSSmartsheet?logo=Powershell)](https://www.powershellgallery.com/packages/PSSmartsheet)
 ## Description ##
 Powershell Module for interacting with the Smartsheet API.
 
