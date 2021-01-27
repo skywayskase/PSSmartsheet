@@ -1,5 +1,5 @@
 # PSSmartsheet
-![example workflow file path](https://github.com/skywayskase/PSSmartsheet/workflows/Build%20and%20Deploy/badge.svg)
+[![BuildStatus](https://github.com/skywayskase/PSSmartsheet/workflows/Build%20and%20Deploy/badge.svg)](https://github.com/skywayskase/PSSmartsheet/actions?query=workflow%3A%22Build+and+Deploy%22)
 ## Description ##
 Powershell Module for interacting with the Smartsheet API.
 
