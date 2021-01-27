@@ -30,21 +30,25 @@ Function New-SSCellHyperlinkObject {
     [OutputType([Smartsheet.Api.Models.Hyperlink])]
     Param
     (
-        [Parameter(ParameterSetName = 'Report')]
+        [Parameter(ParameterSetName = 'Report',
+                   Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
         [long]
         $ReportId,
-        [Parameter(ParameterSetName = 'Sheet')]
+        [Parameter(ParameterSetName = 'Sheet',
+                   Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
         [long]
         $SheetId,
-        [Parameter(ParameterSetName = 'Sight')]
+        [Parameter(ParameterSetName = 'Sight',
+                   Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
         [long]
         $SightId,
-        [Parameter(ParameterSetName = 'URL')]
-        [ValidatePattern('http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?')]
+        [Parameter(ParameterSetName = 'URL',
+                   Mandatory = $true)]
         [ValidateNotNullOrEmpty()]
+        [ValidatePattern('http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?')]
         [string]
         $URL
     )

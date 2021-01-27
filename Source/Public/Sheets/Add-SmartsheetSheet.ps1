@@ -18,14 +18,20 @@ Function Add-SmartsheetSheet {
     .PARAMETER FolderID
         The ID of a folder to create the sheet in.
 
+    .PARAMETER HomeFolder
+        Specified the new sheet should be created in the users "Sheets" folder
+
     .EXAMPLE
         $column1 = New-SSColumnObject -Title "Column 1" -Primary
         $column2 = New-SSColumnObject -Title "Second Column" -Type CHECKBOX
         Add-SmartsheetSheet -Column $column1,$column2
 
+    .NOTES
+        Additional information about the function.
 #>
 
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'Home')]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Justification='Param used for ParameterSetName matching')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -35,19 +41,24 @@ Function Add-SmartsheetSheet {
         [Parameter(Mandatory = $true)]
         [Smartsheet.Api.Models.Column[]]
         $Column,
-        [Parameter(ParameterSetName = 'Workspace')]
+        [Parameter(ParameterSetName = 'Workspace',
+                   Mandatory = $true)]
         [long]
         $WorkspaceID,
-        [Parameter(ParameterSetName = 'Folder')]
+        [Parameter(ParameterSetName = 'Folder',
+                   Mandatory = $true)]
         [long]
-        $FolderID
+        $FolderID,
+        [Parameter(ParameterSetName = 'Home')]
+        [switch]
+        $HomeFolder
     )
 
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
             Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."
         }
-        $NewSheet = [Smartsheet.Api.Models.Sheet+CreateSheetBuilder]::($Name,$Column).Build()
+        $NewSheet = [Smartsheet.Api.Models.Sheet+CreateSheetBuilder]::($Name, $Column).Build()
     }
     Process {
         Try {

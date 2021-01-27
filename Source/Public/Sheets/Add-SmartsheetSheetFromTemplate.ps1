@@ -21,12 +21,18 @@ Function Add-SmartsheetSheetFromTemplate {
     .PARAMETER FolderID
         Folder Id where the sheet will be created
 
+    .PARAMETER HomeFolder
+        Indicates that the new sheet should be created in the user's "Sheets" folder.
+
     .EXAMPLE
         Add-SmartsheetSheetFromTemplate -Title "A new sheet" -FromID '7679398137620356' -Include ATTACHMENTS,DISCUSSIONS
 
+    .NOTES
+        Additional information about the function.
 #>
 
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'Home')]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', '', Justification='Param used for ParameterSetName matching')]
     Param
     (
         [Parameter(Mandatory = $true)]
@@ -39,12 +45,17 @@ Function Add-SmartsheetSheetFromTemplate {
         $FromID,
         [Smartsheet.Api.Models.TemplateInclusion[]]
         $Includes = $null,
-        [Parameter(ParameterSetName = 'Workspace')]
+        [Parameter(ParameterSetName = 'Workspace',
+                   Mandatory = $true)]
         [long]
         $WorkspaceID,
-        [Parameter(ParameterSetName = 'Folder')]
+        [Parameter(ParameterSetName = 'Folder',
+                   Mandatory = $true)]
         [long]
-        $FolderID
+        $FolderID,
+        [Parameter(ParameterSetName = 'Home')]
+        [switch]
+        $HomeFolder
     )
 
     Begin {
