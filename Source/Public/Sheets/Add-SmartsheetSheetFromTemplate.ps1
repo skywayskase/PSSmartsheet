@@ -2,30 +2,30 @@ Function Add-SmartsheetSheetFromTemplate {
 <#
     .SYNOPSIS
         Creates a sheet from a template
-    
+
     .DESCRIPTION
         Creates a sheet from a template in either the user's "Sheets" folder, or the specified folder or workspace
-    
+
     .PARAMETER Name
         Name of the new sheet
-    
+
     .PARAMETER FromID
         Template Id from which to create the sheet.
-    
+
     .PARAMETER Includes
         Additional parameter to create a sheet from template. A comma-separated list of elements to copy from the template.
-    
+
     .PARAMETER WorkspaceID
         Workspace Id where the sheet will be created
-    
+
     .PARAMETER FolderID
         Folder Id where the sheet will be created
-    
+
     .EXAMPLE
         Add-SmartsheetSheetFromTemplate -Title "A new sheet" -FromID '7679398137620356' -Include ATTACHMENTS,DISCUSSIONS
-    
+
 #>
-    
+
     [CmdletBinding()]
     Param
     (
@@ -46,7 +46,7 @@ Function Add-SmartsheetSheetFromTemplate {
         [long]
         $FolderID
     )
-    
+
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
             Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."

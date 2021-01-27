@@ -2,41 +2,41 @@ Function New-SSUserObject {
 <#
     .SYNOPSIS
         Builds a Smartsheet User Object
-    
+
     .DESCRIPTION
         Builds a Smartsheet User Object that can be used to add or update a user.
-    
+
     .PARAMETER Email
         User's primary email address.
-    
+
     .PARAMETER ID
         A description of the ID parameter.
-    
+
     .PARAMETER FirstName
         User's first name.
-    
+
     .PARAMETER LastName
         User's last name.
-    
+
     .PARAMETER LicensedSheetCreator
         Indicates whether the user is a licensed user (can create and own sheets).
-    
+
     .PARAMETER Admin
         Indicates whether the user is a system admin (can manage user accounts and organization account).
-    
+
     .PARAMETER GroupAdmin
         Indicates whether the user is a group admin (can create and edit groups).
-    
+
     .PARAMETER ResourceViewer
         Indicates whether the user is a resource viewer (can access resource views).
-    
+
     .EXAMPLE
         New-SSUserObject -Email "test@example.com" -LicensedSheetCreator
-        
+
         Returns a user object with the email of "test@example.com" that will be a licensed sheet creator that can be fed to Add-SmartsheetUser creating the account.
-    
+
 #>
-    
+
     [CmdletBinding(DefaultParameterSetName = 'NewUserObject')]
     [OutputType([Smartsheet.Api.Models.User])]
     Param
@@ -64,7 +64,7 @@ Function New-SSUserObject {
         [switch]
         $ResourceViewer
     )
-    
+
     Process {
         If ($PSCmdlet.ParameterSetName -eq 'NewUserObject') {
             $userObj = [Smartsheet.Api.Models.User+AddUserBuilder]::new($null, $false, $false).Build()
@@ -78,5 +78,3 @@ Function New-SSUserObject {
         $userObj
     }
 }
-
-    

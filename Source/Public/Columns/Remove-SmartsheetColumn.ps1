@@ -2,22 +2,22 @@ Function Remove-SmartsheetColumn {
 <#
     .SYNOPSIS
         Deletes a specified column.
-    
+
     .DESCRIPTION
         Deletes a specified column.
-    
+
     .PARAMETER SheetId
         The ID of the sheet to delete columns from
-    
+
     .PARAMETER ColumnId
         The ID of the column(s) to delete from the specified sheet.
-    
+
     .PARAMETER Force
         Forces the rows to be deleted without prompting.
-    
+
     .EXAMPLE
         Remove-SmartsheetColumn -SheetId '9283173393803140' -ColumnId '0123456789012345' -Force
-    
+
 #>
     [CmdletBinding(ConfirmImpact = 'High',
                    SupportsShouldProcess = $true)]
@@ -35,7 +35,7 @@ Function Remove-SmartsheetColumn {
         [switch]
         $Force
     )
-    
+
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
             Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."

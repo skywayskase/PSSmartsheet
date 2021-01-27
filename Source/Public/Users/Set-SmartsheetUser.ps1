@@ -2,19 +2,19 @@ Function Set-SmartsheetUser {
 <#
     .SYNOPSIS
         Updates a Smartsheet user
-    
+
     .DESCRIPTION
         Updates a specified Smartsheet user account
-    
+
     .PARAMETER UserObject
         A user object created with the New-SSUserObject cmdlet
-    
+
     .EXAMPLE
         $User = New-SSUserObject -ID '82349925918590' -LicensedSheetCreator -Admin
         Set-SmartsheetUser -UserObject $user
-    
+
 #>
-    
+
     [CmdletBinding()]
     Param
     (
@@ -24,7 +24,7 @@ Function Set-SmartsheetUser {
         [Smartsheet.Api.Models.User[]]
         $UserObject
     )
-    
+
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
             Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."

@@ -2,26 +2,26 @@ Function Remove-SmartsheetGroupMember {
 <#
     .SYNOPSIS
         Removes specified  member(s) from a group.
-    
+
     .DESCRIPTION
         Removes specified  member(s) from a group.
-    
+
     .PARAMETER GroupID
         Id of the group to remove users from
-    
+
     .PARAMETER User
         The userID or email of the user to be removed from the group
-    
+
     .PARAMETER Force
         Removes user(s) group the specified group without prompting
-    
+
     .EXAMPLE
         Remove-SmartsheetGroupMember -GroupID '7917992160847748' -UserID '1539725208119172' -Force
-    
+
     .NOTES
         This operation is only available to group administrators and system administrators.
 #>
-    
+
     [CmdletBinding(ConfirmImpact = 'Medium',
                    SupportsShouldProcess = $true)]
     Param
@@ -39,7 +39,7 @@ Function Remove-SmartsheetGroupMember {
         [switch]
         $Force
     )
-    
+
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
             Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."

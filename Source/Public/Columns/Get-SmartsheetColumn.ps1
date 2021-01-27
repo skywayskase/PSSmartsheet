@@ -2,28 +2,28 @@ Function Get-SmartsheetColumn {
 <#
     .SYNOPSIS
         Gets a specified column or a list of columns on a specified sheet
-    
+
     .DESCRIPTION
         Gets a specified column or a list of columns on a specified sheet
-    
+
     .PARAMETER SheetID
         Sheet Id of the sheet being accessed.
-    
+
     .PARAMETER Include
         Represents specific elements to include in a response.
-    
+
     .PARAMETER ColumnID
         Column Id in the sheet being accessed.
-    
+
     .PARAMETER Level
         Specifies whether new functionality, such as multi-contact data is returned in a backwards-compatible, text format (level=0, default), multi-contact data (level=1), or multi-picklist data (level=2).
-    
+
     .EXAMPLE
         Get-SmartsheetColumn -SheetID '9283173393803140'
-    
+
     .EXAMPLE
         Get-SmartsheetColumn -SheetID '9283173393803140' -ColumnID '7960873114331012'
-    
+
 #>
     [CmdletBinding()]
     [OutputType([Smartsheet.Api.Models.Column])]
@@ -42,7 +42,7 @@ Function Get-SmartsheetColumn {
         [int]
         $Level = 0
     )
-    
+
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
             Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."

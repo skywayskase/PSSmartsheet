@@ -2,21 +2,21 @@ Function Remove-SmartsheetSheet {
 <#
     .SYNOPSIS
         Deletes a specified sheet.
-    
+
     .DESCRIPTION
         Deletes a specified sheet. This cannot be undone!
-    
+
     .PARAMETER SheetId
         The Id of the sheet(s) to delete.
-    
+
     .PARAMETER Force
         Forces the sheet to be deleted without prompting
-    
+
     .EXAMPLE
         Remove-SmartsheetSheet -SheetId 1531988831168388 -Force
-    
+
 #>
-    
+
     [CmdletBinding(ConfirmImpact = 'High',
                    SupportsShouldProcess = $true)]
     Param

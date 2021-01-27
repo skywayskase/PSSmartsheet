@@ -2,23 +2,23 @@ Function Add-SmartsheetGroupMember {
 <#
     .SYNOPSIS
         Adds one or more members to a group.
-    
+
     .DESCRIPTION
         Adds one or more members to a group.
-    
+
     .PARAMETER Email
         Email address of new user(s) to add to the specified group
-    
+
     .PARAMETER GroupID
         ID of the group to add members to.
-    
+
     .EXAMPLE
         Add-SmartsheetGroupMembers -Email 'john.doe@example.com','Jane.doe@example.com' -GroupID '7917992160847748'
-    
+
     .NOTES
         This operation is only available to group administrators and system administrators.
 #>
-    
+
     [CmdletBinding()]
     Param
     (
@@ -31,7 +31,7 @@ Function Add-SmartsheetGroupMember {
         [long]
         $GroupID
     )
-    
+
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
             Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."

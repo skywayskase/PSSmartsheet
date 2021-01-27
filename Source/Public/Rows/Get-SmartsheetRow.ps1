@@ -2,27 +2,27 @@ Function Get-SmartsheetRow {
 <#
     .SYNOPSIS
         Retrieves the specified row
-    
+
     .DESCRIPTION
         Retrieves the specified row
-    
+
     .PARAMETER SheetID
         Sheet Id of the sheet being accessed.
-    
+
     .PARAMETER RowID
         Row Id in the sheet being accessed.
-    
+
     .PARAMETER Include
         A comma-separated list of elements to include in the response.
-    
+
     .PARAMETER Exclude
         A comma-separated list of optional elements to not include in the response
-    
+
     .EXAMPLE
         Get-SmartsheetRow -SheetID '4583173393803140' -RowID '2361756178769796'
-    
+
 #>
-    
+
     [CmdletBinding()]
     [OutputType([Smartsheet.Api.Models.Row])]
     Param
@@ -42,7 +42,7 @@ Function Get-SmartsheetRow {
         [Smartsheet.Api.Models.RowExclusion[]]
         $Exclude = $null
     )
-    
+
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
             Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."

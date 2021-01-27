@@ -2,34 +2,34 @@ Function Add-SmartsheetGroup {
 <#
     .SYNOPSIS
         Creates a new Group
-    
+
     .DESCRIPTION
         Creates a new Group
-    
+
     .PARAMETER GroupObject
         The group object created using New-SSGroupObject
-    
+
     .PARAMETER Name
         Name of the group to create.
         NOTE: Must be unique accross org
-    
+
     .PARAMETER Description
         A description of the new group to create
-    
+
     .PARAMETER MemberEmail
         Email address(es) of user(s) to initially populate the new group with.
-    
+
     .EXAMPLE
         $Group = New-SSGroupObject -Name 'A new Group' -MemberEmail 'john.doe@example.com','Jane.doe@example.com'
         Add-SmartsheetGroup -GroupObject $Group
-    
+
     .EXAMPLE
         Add-SmartsheetGroup -Name 'A new Group' -Description 'A description of the group' -MemberEmail 'john.doe@example.com','Jane.doe@example.com'
-    
+
     .NOTES
         This operation is only available to group administrators and system administrators.
 #>
-    
+
     [CmdletBinding(DefaultParameterSetName = 'Params')]
     Param
     (
@@ -51,7 +51,7 @@ Function Add-SmartsheetGroup {
         [string[]]
         $MemberEmail
     )
-    
+
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
             Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."
@@ -65,7 +65,7 @@ Function Add-SmartsheetGroup {
             Else {
                 $GroupObject = New-SSGroupObject -Name $Name -Description $Description
             }
-            
+
         }
         ForEach ($GO In $GroupObject) {
             Try {

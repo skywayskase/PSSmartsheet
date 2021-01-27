@@ -2,21 +2,21 @@ Function Search-SmartsheetSheet {
 <#
     .SYNOPSIS
         Searches for the specified text in a sheet.
-    
+
     .DESCRIPTION
         Searches for the specified text in a sheet. By default will search all sheets the user has access two unless a sheetID is specified
-    
+
     .PARAMETER Query
         Text with which to perform the search.
-    
+
     .PARAMETER SheetID
         Sheet Id of the sheet being searched
-    
+
     .EXAMPLE
         Search-SmartsheetSheets -Query 'Stuff'
-    
+
 #>
-    
+
     [CmdletBinding()]
     [OutputType([Smartsheet.Api.Models.SearchResult])]
     Param
@@ -27,7 +27,7 @@ Function Search-SmartsheetSheet {
         [long]
         $SheetID
     )
-    
+
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
             Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."

@@ -2,35 +2,35 @@ Function Add-SmartsheetUser {
 <#
     .SYNOPSIS
         Adds a user to the organization account.
-    
+
     .DESCRIPTION
         Adds a user to the organization account.
-    
+
     .PARAMETER UserObject
         One or more user objects created using New-SSUserObject.
-    
+
     .PARAMETER sendEmail
         Indicates whether to send a welcome email. Defaults to false.
-    
+
     .EXAMPLE
         $User = New-SSUserObject -Email "test@example.com" -LicensedSheetCreator
         Add-SmartsheetUser -UserObject $User
-    
+
     .EXAMPLE
         $User1 = New-SSUserObject -Email "test@example.com" -LicensedSheetCreator
         $user2 = New-SSUserObject -Email "secondTest@example.com" -LicensedSheetCreator -Admin
         Add-SmartsheetUser -UserObject $User1,$user2
-        
+
     .NOTES
         This operation is only available to system administrators
-        
+
         If successful, and user auto provisioning (UAP) is on, and user matches the auto provisioning rules, user is added to the org.
         If UAP is off, or user does not match UAP rules, user is invited to the org and must explicitly accept the invitation to join.
-        
+
         In some specific scenarios, supplied attributes such as firstName and lastName may be ignored.
         For example, if you are inviting an existing Smartsheet user to join your organization account, and the invited user has not yet accepted your invitation, any supplied firstName and lastName are ignored.
 #>
-    
+
     [CmdletBinding()]
     Param
     (
@@ -42,7 +42,7 @@ Function Add-SmartsheetUser {
         [switch]
         $sendEmail
     )
-    
+
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
             Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."

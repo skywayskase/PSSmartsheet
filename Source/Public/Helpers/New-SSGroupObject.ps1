@@ -2,34 +2,34 @@ Function New-SSGroupObject {
 <#
     .SYNOPSIS
         Creates a Group object that can be used to add memebers to a group
-    
+
     .DESCRIPTION
         Creates a Group object that can be used to add memebers to a group
-    
+
     .PARAMETER MemberEmail
         Email addresses of user to initially populate a new group
-    
+
     .PARAMETER Name
         A name for the group. Must be unique within the org
-    
+
     .PARAMETER Description
         A description of the group
-    
+
     .PARAMETER GroupID
         The ID of the group to update
-    
+
     .PARAMETER OwnerID
         The userID of a user to transfer ownership to.
         NOTE: Must be either a Group Admin or System Admin
-    
+
     .EXAMPLE
         $Group = New-SSGroupObject -Name 'A new Group' -MemberEmail 'john.doe@example.com','Jane.doe@example.com'
-    
+
     .EXAMPLE
         $Group = New-SSGroupObject -GroupId '2331373580117892' -Name 'New Group Name' -OwnerID '2331373580117892'
-    
+
 #>
-    
+
     [CmdletBinding(DefaultParameterSetName = 'New')]
     [OutputType([Smartsheet.Api.Models.Group])]
     Param
@@ -84,5 +84,5 @@ Function New-SSGroupObject {
                 Break
             }
         }
-    }    
+    }
 }

@@ -2,23 +2,23 @@ Function Remove-SmartsheetGroup {
 <#
     .SYNOPSIS
         Deletes the group specified
-    
+
     .DESCRIPTION
         Deletes the group specified
-    
+
     .PARAMETER GroupID
         The ID of the group to delete
-    
+
     .PARAMETER Force
         Removes group without prompting
-    
+
     .EXAMPLE
         Remove-SmartsheetGroup -GroupID '6932724448552836' -Force
-    
+
     .NOTES
         This operation is only available to group administrators and system administrators.
 #>
-    
+
     [CmdletBinding(ConfirmImpact = 'High',
                    SupportsShouldProcess = $true)]
     Param
@@ -30,7 +30,7 @@ Function Remove-SmartsheetGroup {
         [switch]
         $Force
     )
-    
+
     Begin {
         If ([String]::IsNullOrEmpty($Script:SmartsheetClient)) {
             Throw "Smartsheet API Client has not yet been initialized. Please run Initialize-SmartsheetClient and try again."
