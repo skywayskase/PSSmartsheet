@@ -14,3 +14,6 @@
 ## 0.1.3 - 2021-01-27
 - Miscellaneous
     - Fixed some parameter attributes for `New-SSCellHyperlink`, `Add-SmartsheetSheet`, `Add-SmartsheetSheetFromTemplate`, and `Move-SmartsheetSheet`.
+## 0.1.4 - 2021-03-08
+- Miscellaneous
+    - Fixed issue where `New-SSGroupObject` returned both pre-built object and built object

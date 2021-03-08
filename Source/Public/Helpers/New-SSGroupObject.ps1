@@ -62,7 +62,7 @@ Function New-SSGroupObject {
                     [Smartsheet.Api.Models.GroupMember[]]$groupMembers = $MemberEmail.foreach{
                         [Smartsheet.Api.Models.GroupMember+AddGroupMemberBuilder]::new($_).Build()
                     }
-                    $GroupObject.SetMembers($groupMembers)
+                    [void]$GroupObject.SetMembers($groupMembers)
                 }
                 $GroupObject.Build()
                 Break
@@ -71,13 +71,13 @@ Function New-SSGroupObject {
                 $GroupObject = [Smartsheet.Api.Models.Group+UpdateGroupBuilder]::new($GroupID)
                 Switch ($PSBoundParameters.Keys) {
                     'Name' {
-                        $GroupObject.SetName($Name)
+                        [void]$GroupObject.SetName($Name)
                     }
                     'Description' {
-                        $GroupObject.SetDescription($Description)
+                        [void]$GroupObject.SetDescription($Description)
                     }
                     'OwnerID' {
-                        $GroupObject.SetOwnerId($OwnerID)
+                        [void]$GroupObject.SetOwnerId($OwnerID)
                     }
                 }
                 $GroupObject.Build()
