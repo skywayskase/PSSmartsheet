@@ -17,3 +17,9 @@
 ## 0.1.4 - 2021-03-08
 - Miscellaneous
     - Fixed issue where `New-SSGroupObject` returned both pre-built object and built object
+
+## 0.1.5 - 2022-07-20
+- [Issue #5](https://github.com/skywayskase/PSSmartsheet/issues/5)
+    - Corrected misspelled variable in `Get-SmartsheetSheet`
+- [Issue #6](https://github.com/skywayskase/PSSmartsheet/issues/6)
+    - Updated type on `$ModifiedSince` attribute to allow it to be null

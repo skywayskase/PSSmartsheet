@@ -30,7 +30,7 @@ Function Get-SmartsheetSheet {
         [Parameter(ParameterSetName = 'FullOrg')]
         [switch]
         $ListOrgSheets,
-        [datetime]
+        [nullable[datetime]]
         $ModifiedSince = $null,
         [Parameter(ParameterSetName = 'Individual')]
         [ValidateNotNullOrEmpty()]
@@ -53,7 +53,7 @@ Function Get-SmartsheetSheet {
                 ).data
             }
             Else {
-                $cript:SmartsheetClient.SheetResources.ListSheets(
+                $Script:SmartsheetClient.SheetResources.ListSheets(
                     $Include,
                     $PagingParams,
                     $ModifiedSince
