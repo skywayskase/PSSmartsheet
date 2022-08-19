@@ -23,3 +23,6 @@
     - Corrected misspelled variable in `Get-SmartsheetSheet`
 - [Issue #6](https://github.com/skywayskase/PSSmartsheet/issues/6)
     - Updated type on `$ModifiedSince` attribute to allow it to be null
+
+## 0.1.6 - 2022-08-19
+- Updated assembly files
