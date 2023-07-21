@@ -26,3 +26,7 @@
 
 ## 0.1.6 - 2022-08-19
 - Updated assembly files
+
+## 0.1.7 - 2023-07-21
+- Updated assembly files
+- Updated module requirements

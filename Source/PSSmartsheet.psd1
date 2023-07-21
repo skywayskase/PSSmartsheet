@@ -4,10 +4,10 @@
     RootModule        = 'PSSmartsheet.psm1'
 
     # Version number of this module.
-    ModuleVersion     = '0.1.6'
+    ModuleVersion     = '0.1.7'
 
     # Supported PSEditions
-    CompatiblePSEditions = @('Core', 'Desktop')
+    CompatiblePSEditions = @('Core')
 
     # ID used to uniquely identify this module
     GUID              = '599a5f68-e16b-430f-8314-84a2bf7bac6f'
@@ -25,7 +25,7 @@
     Description       = 'A Powershell wrapper for the Smartsheet C# SDK'
 
     # Minimum version of the PowerShell engine required by this module
-    PowerShellVersion = '5.1'
+    PowerShellVersion = '7.2'
 
     # Name of the PowerShell host required by this module
     # PowerShellHostName = ''
@@ -34,7 +34,7 @@
     # PowerShellHostVersion = ''
 
     # Minimum version of Microsoft .NET Framework required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
-    DotNetFrameworkVersion = '4.6.1'
+    # DotNetFrameworkVersion = ''
 
     # Minimum version of the common language runtime (CLR) required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
     # ClrVersion = ''
