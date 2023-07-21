@@ -27,11 +27,11 @@ jobs:
         shell: pwsh
         run: |
           $module = Build-Module -SourcePath .\Source\ -passthru
-          Write-Output "::set-output name=ModuleVersion::$($module.Version.ToString())"
+          "ModuleVersion=$($module.Version.ToString())" >> $env:GITHUB_OUTPUT
       - name: Lint Built Module
         shell: pwsh
         run: |
-            Invoke-ScriptAnalyzer -Path .\PSSmartsheet\${{ Steps.build.outputs.ModuleVersion }}\PSSmartsheet.psm1 -Settings .\PSScriptAnalyzerSettings.psd1 -Outvariable issues
+            Invoke-ScriptAnalyzer -Path .\PSSmartsheet\${{ steps.build.outputs.ModuleVersion }}\PSSmartsheet.psm1 -Settings .\PSScriptAnalyzerSettings.psd1 -Outvariable issues
             $errors   = $issues.Where({$_.Severity -eq 'Error'})
             $warnings = $issues.Where({$_.Severity -eq 'Warning'})
             if ($errors) {
@@ -44,4 +44,4 @@ jobs:
         env: 
           NUGET_KEY: ${{ secrets.PSGALLERY_API_KEY }}
         run: |
-          Publish-Module -Path .\PSSmartsheet\${{ Steps.build.outputs.ModuleVersion }}\ -NuGetApiKey $env:NUGET_KEY -Verbose
+          Publish-Module -Path .\PSSmartsheet\${{ steps.build.outputs.ModuleVersion }}\ -NuGetApiKey $env:NUGET_KEY -Verbose
