@@ -30,3 +30,6 @@
 ## 0.1.7 - 2023-07-21
 - Updated assembly files
 - Updated module requirements
+
+## 0.1.8 - 2023-07-24
+- Added 'level' parameter to `Read-SmartsheetSheet`

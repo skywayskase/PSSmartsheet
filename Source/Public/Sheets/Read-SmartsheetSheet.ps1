@@ -51,7 +51,10 @@ Function Read-SmartsheetSheet {
         [long[]]
         $RowIds = $null,
         [int[]]
-        $RowNumbers = $null
+        $RowNumbers = $null,
+        [int]
+        [ValidateRange(0,2)]
+        $level = 0
     )
 
     Begin {
@@ -70,7 +73,9 @@ Function Read-SmartsheetSheet {
                 $RowNumbers,
                 $ColumnIDs,
                 $null,
-                $null
+                $null,
+                $null,
+                $level
             )
         }
         Catch {
