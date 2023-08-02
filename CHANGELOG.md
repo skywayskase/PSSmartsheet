@@ -33,3 +33,6 @@
 
 ## 0.1.8 - 2023-07-24
 - Added 'level' parameter to `Read-SmartsheetSheet`
+
+## 0.1.9 - 2023-08-02
+- Fixed issue with `New-SSCellObject` failing when neither a LinkObject or HyperlinkObject are provided

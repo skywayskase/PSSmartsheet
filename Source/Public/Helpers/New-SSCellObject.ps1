@@ -29,7 +29,7 @@ Function New-SSCellObject {
 
 #>
 
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'NoLink')]
     [OutputType([Smartsheet.Api.Models.Cell])]
     Param
     (
