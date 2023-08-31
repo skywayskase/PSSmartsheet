@@ -36,3 +36,6 @@
 
 ## 0.1.9 - 2023-08-02
 - Fixed issue with `New-SSCellObject` failing when neither a LinkObject or HyperlinkObject are provided
+
+## 0.2.0 - 2023-08-31
+- Fixed name of New-SSCellHyperlinkObject file
