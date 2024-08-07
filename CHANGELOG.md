@@ -41,3 +41,7 @@
 - Fixed name of New-SSCellHyperlinkObject file
 
 ## 0.2.1 - 2024-08-07
+- Resolved #8
+
+## 0.2.2 - 2024-08-07
+- Incrementing version
