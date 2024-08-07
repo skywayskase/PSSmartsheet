@@ -43,6 +43,8 @@ Function New-SSCellObject {
         [Parameter(DontShow = $true)]
         [switch]
         $OverrideValidation,
+        [bool]
+        $Strict = $true,
         [Parameter(ParameterSetName = 'Hyperlink')]
         [ValidateNotNullOrEmpty()]
         [Smartsheet.Api.Models.Hyperlink]
@@ -57,6 +59,9 @@ Function New-SSCellObject {
     Process {
         If ($PSCmdlet.ParameterSetName -eq 'CellLink') {
             $Value = $null
+        }
+        If ($OverrideValidation) {
+            $Strict = $false
         }
         $CellObject = [Smartsheet.Api.Models.Cell+AddCellBuilder]::new(
             $ColumnID,
