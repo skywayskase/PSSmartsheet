@@ -39,3 +39,5 @@
 
 ## 0.2.0 - 2023-08-31
 - Fixed name of New-SSCellHyperlinkObject file
+
+## 0.2.1 - 2024-08-07
