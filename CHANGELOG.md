@@ -45,3 +45,6 @@
 
 ## 0.2.2 - 2024-08-07
 - Incrementing version
+
+## 0.2.3 - 2025-07-23
+- Updating smartsheet-csharp-dsk.dll to newest version
